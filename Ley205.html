@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección Intensiva: Ley 250 de Transparencia de Veracruz</title>
+    <style>
+        :root {
+            --primary: #003366;
+            --secondary: #00509E;
+            --accent: #FFD700;
+            --light: #f4f7f6;
+            --text: #333;
+            --success: #28a745;
+            --error: #dc3545;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        nav button {
+            padding: 10px 20px;
+            border: none;
+            background: transparent;
+            color: var(--secondary);
+            font-weight: bold;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        nav button:hover, nav button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background-color: #f0f8ff;
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            min-height: 60vh;
+        }
+
+        section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+
+        /* Concept Cards */
+        .grid-concepts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-left: 5px solid var(--secondary);
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { margin-top: 0; color: var(--secondary); }
+
+        /* Interactive Diagram */
+        .diagram-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .flow-step {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin: 10px;
+            cursor: pointer;
+            width: 80%;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .flow-step:hover {
+            transform: scale(1.02);
+            background: var(--primary);
+        }
+
+        .flow-step::after {
+            content: "▼";
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .flow-step:last-child::after { content: none; }
+
+        .info-panel {
+            background: #eef2f5;
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+            text-align: left;
+        }
+
+        /* Quiz Styles */
+        .quiz-question {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .quiz-options label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .quiz-options label:hover { background: #e9ecef; }
+        .quiz-options input { margin-right: 10px; }
+
+        #quiz-result {
+            margin-top: 2rem;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .btn-primary:hover { background: var(--secondary); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #333;
+            color: white;
+            margin-top: auto;
+        }
+
+        /* Classification Visual */
+        .classification-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .class-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            position: relative;
+        }
+        .public { background-color: #28a745; }
+        .reserved { background-color: #ffc107; color: #333; }
+        .confidential { background-color: #dc3545; }
+        
+        .class-detail {
+            margin-top: 15px;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Derecho a la Información en Veracruz</h1>
+    <p>Lección Universitaria sobre la Ley Número 250</p>
+</header>
+
+<nav>
+    <button onclick="showSection('conceptos')" class="active">1. Conceptos Clave</button>
+    <button onclick="showSection('interactivo')">2. Visualización Dinámica</button>
+    <button onclick="showSection('evaluacion')">3. Autoevaluación</button>
+</nav>
+
+<main>
+    <!-- SECCIÓN 1: CONCEPTOS CLAVE -->
+    <section id="conceptos" class="active">
+        <h2>Fundamentos de la Ley 250</h2>
+        <p>Esta ley, publicada en la Gaceta Oficial del Estado de Veracruz (proyección junio 2025), regula el artículo 6º Constitucional. A continuación, se presentan los pilares fundamentales que todo estudiante debe dominar.</p>
+        
+        <div class="grid-concepts">
+            <div class="card">
+                <h3>Sujetos Obligados</h3>
+                <p>Cualquier autoridad, entidad, órgano y organismo de los Poderes Ejecutivo, Legislativo y Judicial, Ayuntamientos, partidos políticos, fideicomisos y sindicatos que reciban y ejerzan recursos públicos (Art. 3, XIX).</p>
+            </div>
+            <div class="card">
+                <h3>Máxima Publicidad</h3>
+                <p>Principio rector que establece que toda la información en posesión de los sujetos obligados es pública, completa, oportuna y accesible, salvo excepciones muy limitadas por ley (Art. 7 y 8).</p>
+            </div>
+            <div class="card">
+                <h3>Unidad de Transparencia</h3>
+                <p>Es la instancia administrativa dentro de cada Sujeto Obligado encargada de recibir y tramitar las solicitudes de acceso a la información. Es la "ventanilla" del ciudadano (Art. 31).</p>
+            </div>
+            <div class="card">
+                <h3>Comité de Transparencia</h3>
+                <p>Órgano colegiado dentro de cada institución que confirma, modifica o revoca la clasificación de la información (reserva o confidencialidad) y declara la inexistencia de documentos (Art. 29-30).</p>
+            </div>
+            <div class="card">
+                <h3>Transparencia con Sentido Social</h3>
+                <p>Información publicada proactivamente que es útil para temas prioritarios, diseñada para disminuir asimetrías de información y mejorar el acceso a trámites (Art. 37-39).</p>
+            </div>
+            <div class="card">
+                <h3>Subsistema de Transparencia</h3>
+                <p>Estructura coordinada local que forma parte del Sistema Nacional, encargada de impulsar la política de transparencia en el Estado de Veracruz (Art. 23).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: VISUALIZACIÓN INTERACTIVA -->
+    <section id="interactivo">
+        <h2>Clasificación de la Información (Art. 84 - 101)</h2>
+        <p><i>Haz clic en los recuadros de abajo para entender las categorías de la información.</i></p>
+        
+        <div class="classification-wrapper">
+            <div class="class-box public" onclick="toggleDetail(this)">
+                <h3>Pública</h3>
+                <p>La regla general.</p>
+                <div class="class-detail">
+                    Es accesible a cualquier persona sin necesidad de justificar interés. Incluye las Obligaciones de Transparencia (nóminas, contratos, directorio) que deben estar en la Plataforma Nacional (Art. 4).
+                </div>
+            </div>
+            <div class="class-box reserved" onclick="toggleDetail(this)">
+                <h3>Reservada</h3>
+                <p>Temporalmente restringida.</p>
+                <div class="class-detail">
+                    Por razones de interés público (seguridad nacional, investigaciones en curso). Requiere "Prueba de Daño". Límite máximo: 5 años, prorrogable por otros 5. No aplica en casos de violaciones a DDHH (Art. 94).
+                </div>
+            </div>
+            <div class="class-box confidential" onclick="toggleDetail(this)">
+                <h3>Confidencial</h3>
+                <p>Protección permanente.</p>
+                <div class="class-detail">
+                    Datos personales (vida privada, patrimonio) o secretos industriales/bancarios. No está sujeta a temporalidad. Solo accede el titular o con consentimiento expreso (Art. 97).
+                </div>
+            </div>
+        </div>
+
+        <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #ddd;">
+
+        <h2>Flujo del Procedimiento de Acceso (Art. 105 - 124)</h2>
+        <p><i>Interactúa con el diagrama para ver los detalles de cada etapa.</i></p>
+
+        <div class="diagram-container">
+            <div class="flow-step" onclick="showFlowInfo('step1')">
+                1. Presentación de la Solicitud
+            </div>
+            <div id="step1" class="info-panel">
+                <strong>Art. 106:</strong> Cualquier persona puede solicitar información a través de la Plataforma Nacional de Transparencia (PNT), correo electrónico, verbalmente o por escrito ante la Unidad de Transparencia. No se requiere justificar para qué se quiere la información.
+            </div>
+
+            <div class="flow-step" onclick="showFlowInfo('step2')">
+                2. Plazos de Respuesta
+            </div>
+            <div id="step2" class="info-panel">
+                <strong>Art. 116:</strong> La respuesta debe notificarse en el menor tiempo posible, no excediendo los <strong>20 días</strong>. Excepcionalmente, puede ampliarse por <strong>10 días más</strong> si el Comité de Transparencia lo justifica.
+            </div>
+
+            <div class="flow-step" onclick="showFlowInfo('step3')">
+                3. Modalidades de Entrega
+            </div>
+            <div id="step3" class="info-panel">
+                <strong>Art. 117:</strong> La información debe entregarse en la modalidad solicitada (electrónica, copias simples, consulta directa). Si requiere reproducción (copias), puede tener costo, pero la digitalización suele ser gratuita.
+            </div>
+
+            <div class="flow-step" onclick="showFlowInfo('step4')">
+                4. Recurso de Revisión (Defensa)
+            </div>
+            <div id="step4" class="info-panel">
+                <strong>Art. 126:</strong> Si niegan la información, la declaran inexistente o incompleta, el solicitante tiene <strong>15 días</strong> para interponer un Recurso de Revisión ante el organismo garante (IVAI).
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: AUTOEVALUACIÓN -->
+    <section id="evaluacion">
+        <h2>Cuestionario de Comprensión</h2>
+        <p>Selecciona la respuesta correcta basada en la Ley Número 250.</p>
+
+        <form id="quiz-form">
+            <!-- Pregunta 1 -->
+            <div class="quiz-question">
+                <p><strong>1. ¿Cuál es el plazo máximo ordinario para que un sujeto obligado responda una solicitud de información (Art. 116)?</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q1" value="wrong"> 15 días hábiles.</label>
+                    <label><input type="radio" name="q1" value="correct"> 20 días.</label>
+                    <label><input type="radio" name="q1" value="wrong"> 30 días naturales.</label>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="quiz-question">
+                <p><strong>2. ¿Qué tipo de información se considera confidencial y no está sujeta a temporalidad (Art. 97)?</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q2" value="wrong"> La relacionada con obras públicas inconclusas.</label>
+                    <label><input type="radio" name="q2" value="correct"> Los datos personales y secretos industriales/bancarios.</label>
+                    <label><input type="radio" name="q2" value="wrong"> Las minutas de reuniones de trabajo.</label>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="quiz-question">
+                <p><strong>3. ¿Qué instancia dentro del Sujeto Obligado tiene la facultad de confirmar, modificar o revocar la clasificación de la información (Art. 30)?</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q3" value="correct"> El Comité de Transparencia.</label>
+                    <label><input type="radio" name="q3" value="wrong"> La Unidad de Transparencia.</label>
+                    <label><input type="radio" name="q3" value="wrong"> El Departamento Jurídico exclusivamente.</label>
+                </div>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div class="quiz-question">
+                <p><strong>4. Según el Artículo 5, ¿qué tipo de información NO podrá clasificarse nunca como reservada?</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q4" value="wrong"> La información sobre seguridad pública.</label>
+                    <label><input type="radio" name="q4" value="wrong"> La información sobre auditorías en proceso.</label>
+                    <label><input type="radio" name="q4" value="correct"> La relacionada con violaciones graves a derechos humanos o delitos de lesa humanidad.</label>
+                </div>
+            </div>
+
+            <button type="button" class="btn-primary" onclick="checkQuiz()">Calificar Examen</button>
+        </form>
+
+        <div id="quiz-result" style="display:none;"></div>
+    </section>
+</main>
+
+<footer>
+    <p>Universidad Virtual - Material Educativo basado en la Gaceta Oficial del Estado de Veracruz.</p>
+    <small>Referencia: LEY NÚMERO 250 DE TRANSPARENCIA Y ACCESO A LA INFORMACIÓN PÚBLICA DEL ESTADO DE VERACRUZ DE IGNACIO DE LA LLAVE.</small>
+</footer>
+
+<script>
+    // Navegación entre pestañas
+    function showSection(id) {
+        // Ocultar todas las secciones
+        document.querySelectorAll('section').forEach(sec => {
+            sec.classList.remove('active');
+        });
+        // Quitar clase activa de botones
+        document.querySelectorAll('nav button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Activar sección seleccionada
+        document.getElementById(id).classList.add('active');
+        
+        // Activar botón correspondiente
+        const btnIndex = ['conceptos', 'interactivo', 'evaluacion'].indexOf(id);
+        document.querySelectorAll('nav button')[btnIndex].classList.add('active');
+    }
+
+    // Lógica del diagrama interactivo de flujo
+    function showFlowInfo(id) {
+        // Ocultar todos primero para efecto acordeón o dejar abierto
+        document.querySelectorAll('.info-panel').forEach(panel => {
+            if(panel.id !== id) panel.style.display = 'none';
+        });
+        
+        const element = document.getElementById(id);
+        if (element.style.display === 'block') {
+            element.style.display = 'none';
+        } else {
+            element.style.display = 'block';
+            element.style.animation = 'fadeIn 0.3s';
+        }
+    }
+
+    // Lógica de las tarjetas de clasificación
+    function toggleDetail(element) {
+        const detail = element.querySelector('.class-detail');
+        if (detail.style.display === 'block') {
+            detail.style.display = 'none';
+        } else {
+            detail.style.display = 'block';
+        }
+    }
+
+    // Lógica del Cuestionario
+    function checkQuiz() {
+        let score = 0;
+        const total = 4;
+        const form = document.getElementById('quiz-form');
+        const resultDiv = document.getElementById('quiz-result');
+        
+        // Respuestas correctas
+        const q1 = form.querySelector('input[name="q1"]:checked');
+        const q2 = form.querySelector('input[name="q2"]:checked');
+        const q3 = form.querySelector('input[name="q3"]:checked');
+        const q4 = form.querySelector('input[name="q4"]:checked');
+
+        if (!q1 || !q2 || !q3 || !q4) {
+            alert("Por favor responde todas las preguntas antes de calificar.");
+            return;
+        }
+
+        if (q1.value === 'correct') score++;
+        if (q2.value === 'correct') score++;
+        if (q3.value === 'correct') score++;
+        if (q4.value === 'correct') score++;
+
+        resultDiv.style.display = 'block';
+        
+        if (score === total) {
+            resultDiv.style.backgroundColor = '#d4edda';
+            resultDiv.style.color = '#155724';
+            resultDiv.innerHTML = `¡Excelente! Calificación: ${score}/${total}. Has dominado los conceptos de la Ley 250.`;
+        } else if (score >= total / 2) {
+            resultDiv.style.backgroundColor = '#fff3cd';
+            resultDiv.style.color = '#856404';
+            resultDiv.innerHTML = `Bien, pero puedes mejorar. Calificación: ${score}/${total}. Revisa las secciones anteriores.`;
+        } else {
+            resultDiv.style.backgroundColor = '#f8d7da';
+            resultDiv.style.color = '#721c24';
+            resultDiv.innerHTML = `Necesitas estudiar más. Calificación: ${score}/${total}. Vuelve a leer los conceptos clave.`;
+        }
+    }
+</script>
+
+</body>
+</html>
