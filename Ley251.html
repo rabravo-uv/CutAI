@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección Intensiva: Ley N° 251 de Protección de Datos - Veracruz</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        /* --- Estilos para Tarjetas de Conceptos (Flip Cards) --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 250px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        .flip-card-front {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .flip-card-front h3 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        .flip-card-back {
+            background-color: var(--light);
+            color: var(--dark);
+            transform: rotateY(180deg);
+            border: 2px solid var(--primary);
+        }
+
+        .flip-card-back p {
+            font-size: 0.95rem;
+        }
+
+        /* --- Estilos para Diagrama Interactivo --- */
+        .interactive-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background: #e8f4f8;
+            border-radius: 10px;
+        }
+
+        .diagram-node {
+            background: white;
+            border: 2px solid var(--secondary);
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: help;
+            position: relative;
+        }
+
+        .diagram-node:hover {
+            background: var(--secondary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .diagram-node .tooltip {
+            visibility: hidden;
+            width: 250px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position above */
+            left: 50%;
+            margin-left: -125px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-weight: normal;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+        .diagram-node .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .diagram-node:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* --- Estilos para Cuestionario --- */
+        .quiz-container {
+            background-color: #fff;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .question h3 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+
+        .options label:hover {
+            background: #e9e9e9;
+        }
+
+        .options input {
+            margin-right: 10px;
+        }
+
+        .btn-check {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-check:hover {
+            background-color: #c0392b;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            font-weight: bold;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .success { background-color: #d4edda; color: #155724; }
+        .warning { background-color: #fff3cd; color: #856404; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Protección de Datos Personales</h1>
+    <p>Lección Universitaria sobre la Ley N° 251 del Estado de Veracruz (2025)</p>
+</header>
+
+<div class="container">
+
+    <!-- Introducción -->
+    <section>
+        <h2>Introducción y Objeto</h2>
+        <p>La <strong>Ley Número 251</strong> tiene por objeto establecer las bases, principios y procedimientos para garantizar el derecho a la protección de datos personales en posesión de los <strong>Sujetos Obligados</strong> (autoridades, poderes ejecutivo, legislativo, judicial, municipios, etc.) del Estado de Veracruz de Ignacio de la Llave.</p>
+        <p><em>Fuente: Gaceta Oficial, Tomo CCXI, Núm. Ext. 258, 30 de junio de 2025.</em></p>
+    </section>
+
+    <!-- Sección 1: Conceptos Clave (Dinámica) -->
+    <section>
+        <h2>1. Conceptos Fundamentales</h2>
+        <p>Pasa el cursor (o toca) sobre las tarjetas para descubrir las definiciones legales según el Artículo 3.</p>
+        
+        <div class="card-grid">
+            <!-- Tarjeta 1: Datos Personales -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Datos Personales</h3>
+                        <span>(Art. 3 Fracción X)</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Cualquier información concerniente a una persona identificada o identificable. Se considera identificable cuando su identidad pueda determinarse directa o indirectamente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Datos Sensibles -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Datos Sensibles</h3>
+                        <span>(Art. 3 Fracción XI)</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Aquellos de la esfera más íntima o cuyo uso indebido cause discriminación o riesgo grave. Ejemplos: origen racial, salud, información genética, creencias religiosas, opiniones políticas, preferencia sexual.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Aviso de Privacidad -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Aviso de Privacidad</h3>
+                        <span>(Art. 3 Fracción III)</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Documento físico, electrónico o en cualquier formato, puesto a disposición del titular para informarle los propósitos del tratamiento de sus datos a partir del momento en que se recaban.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: Responsable vs Encargado -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Actores Clave</h3>
+                        <span>Responsable y Encargado</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <p><strong>Responsable:</strong> Sujeto obligado que decide sobre el tratamiento.<br><br><strong>Encargado:</strong> Persona ajena a la organización que trata datos a nombre y cuenta del responsable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Interactividad Visual (Principios y Derechos) -->
+    <section>
+        <h2>2. Principios y Derechos (Interactivo)</h2>
+        <p>El tratamiento de datos debe cumplir con 8 principios rectores (Art. 10) y garantizar los derechos ARCO (Art. 37). Pasa el mouse sobre los elementos para aprender más.</p>
+        
+        <h3 style="text-align: center; color: var(--secondary);">Los 8 Principios Rectores</h3>
+        <div class="interactive-diagram">
+            <div class="diagram-node">Licitud
+                <span class="tooltip">Sujetarse a las facultades y atribuciones de la ley.</span>
+            </div>
+            <div class="diagram-node">Finalidad
+                <span class="tooltip">Justificado por finalidades concretas, lícitas, explícitas y legítimas.</span>
+            </div>
+            <div class="diagram-node">Lealtad
+                <span class="tooltip">No obtener datos por medios engañosos o fraudulentos. Privilegiar el interés del titular.</span>
+            </div>
+            <div class="diagram-node">Consentimiento
+                <span class="tooltip">Manifestación de voluntad libre, específica e informada (puede ser tácito o expreso).</span>
+            </div>
+            <div class="diagram-node">Calidad
+                <span class="tooltip">Datos exactos, completos, pertinentes, correctos y actualizados.</span>
+            </div>
+            <div class="diagram-node">Proporcionalidad
+                <span class="tooltip">Solo tratar datos adecuados, relevantes y estrictamente necesarios.</span>
+            </div>
+            <div class="diagram-node">Información
+                <span class="tooltip">Informar al titular sobre la existencia y características del tratamiento (Aviso de Privacidad).</span>
+            </div>
+            <div class="diagram-node">Responsabilidad
+                <span class="tooltip">Velar por el cumplimiento de los principios y rendir cuentas.</span>
+            </div>
+        </div>
+
+        <br><hr><br>
+
+        <h3 style="text-align: center; color: var(--accent);">Derechos ARCO</h3>
+        <p style="text-align: center; font-size: 0.9rem;">(Ejercicio gratuito, respuesta máx. 20 días)</p>
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
+            <div style="text-align: center; width: 22%;">
+                <img src="https://via.placeholder.com/80/3498db/ffffff?text=A" alt="Acceso" style="border-radius: 50%; margin-bottom: 10px;">
+                <h4>Acceso</h4>
+                <p style="font-size: 0.85rem;">Conocer qué datos tienen y sus condiciones de uso.</p>
+            </div>
+            <div style="text-align: center; width: 22%;">
+                <img src="https://via.placeholder.com/80/2ecc71/ffffff?text=R" alt="Rectificación" style="border-radius: 50%; margin-bottom: 10px;">
+                <h4>Rectificación</h4>
+                <p style="font-size: 0.85rem;">Corregir datos inexactos, incompletos o desactualizados.</p>
+            </div>
+            <div style="text-align: center; width: 22%;">
+                <img src="https://via.placeholder.com/80/e74c3c/ffffff?text=C" alt="Cancelación" style="border-radius: 50%; margin-bottom: 10px;">
+                <h4>Cancelación</h4>
+                <p style="font-size: 0.85rem;">Eliminar datos de archivos (Supresión) cuando no se ajusten a la ley.</p>
+            </div>
+            <div style="text-align: center; width: 22%;">
+                <img src="https://via.placeholder.com/80/f1c40f/ffffff?text=O" alt="Oposición" style="border-radius: 50%; margin-bottom: 10px;">
+                <h4>Oposición</h4>
+                <p style="font-size: 0.85rem;">Oponerse al tratamiento por causa legítima o daño potencial.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Cuestionario de Autoevaluación -->
+    <section class="quiz-container">
+        <h2>3. Autoevaluación</h2>
+        <p>Responde las siguientes preguntas basadas en la lectura de la Ley N° 251.</p>
+        
+        <form id="quizForm">
+            <!-- Pregunta 1 -->
+            <div class="question">
+                <h3>1. ¿Quién es la Autoridad Garante principal mencionada en esta Ley específica (Art. 3 y 81)?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="wrong"> El INAI únicamente.</label>
+                    <label><input type="radio" name="q1" value="correct"> La Contraloría General del Estado de Veracruz.</label>
+                    <label><input type="radio" name="q1" value="wrong"> La Secretaría de Finanzas.</label>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="question">
+                <h3>2. ¿Cuál es el plazo máximo de respuesta para una solicitud de derechos ARCO (sin prórroga)?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="wrong"> 15 días.</label>
+                    <label><input type="radio" name="q2" value="correct"> 20 días (Art. 45).</label>
+                    <label><input type="radio" name="q2" value="wrong"> 30 días.</label>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="question">
+                <h3>3. ¿Se requiere consentimiento del titular para transferencias relacionadas con investigación y persecución de delitos?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="correct"> No, es una excepción (Art. 64).</label>
+                    <label><input type="radio" name="q3" value="wrong"> Sí, siempre se requiere consentimiento escrito.</label>
+                    <label><input type="radio" name="q3" value="wrong"> Solo si es delito grave.</label>
+                </div>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div class="question">
+                <h3>4. ¿Qué define a los "Datos Personales Sensibles"?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="wrong"> Datos que son públicos en internet.</label>
+                    <label><input type="radio" name="q4" value="wrong"> Datos financieros únicamente.</label>
+                    <label><input type="radio" name="q4" value="correct"> Datos de la esfera íntima cuyo mal uso provoca discriminación o riesgo grave.</label>
+                </div>
+            </div>
+
+            <button type="button" class="btn-check" onclick="checkQuiz()">Calificar Examen</button>
+        </form>
+
+        <div id="result"></div>
+    </section>
+
+</div>
+
+<footer>
+    <p>Material didáctico generado para estudio universitario basado en la Ley 251 del Estado de Veracruz.</p>
+</footer>
+
+<script>
+    function checkQuiz() {
+        const answers = {
+            q1: 'correct',
+            q2: 'correct',
+            q3: 'correct',
+            q4: 'correct'
+        };
+        
+        let score = 0;
+        let total = 4;
+        let form = document.getElementById('quizForm');
+        let resultDiv = document.getElementById('result');
+        
+        // Reset styles
+        resultDiv.className = '';
+        resultDiv.style.display = 'block';
+
+        for (let q in answers) {
+            let selected = form.querySelector(`input[name="${q}"]:checked`);
+            if (selected && selected.value === answers[q]) {
+                score++;
+            }
+        }
+
+        if (score === total) {
+            resultDiv.innerHTML = `¡Excelente! Has acertado ${score} de ${total}. Dominas los conceptos básicos de la Ley 251.`;
+            resultDiv.classList.add('success');
+        } else if (score >= total / 2) {
+            resultDiv.innerHTML = `Buen intento. Has acertado ${score} de ${total}. Revisa los conceptos erróneos.`;
+            resultDiv.classList.add('warning');
+        } else {
+            resultDiv.innerHTML = `Necesitas repasar. Has acertado ${score} de ${total}. Lee nuevamente las tarjetas de conceptos.`;
+            resultDiv.style.backgroundColor = '#f8d7da';
+            resultDiv.style.color = '#721c24';
+        }
+    }
+</script>
+
+</body>
+</html>
