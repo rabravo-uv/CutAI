@@ -26,28 +26,40 @@
         header {
             text-align: center;
             margin-bottom: 40px;
-            max-width: 800px;
+            max-width: 100%; /* Asegura que ocupe todo el ancho disponible */
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px 12px; /* Añadido padding vertical */
+            background-color: var(--secondary-color); /* Fondo verde */
+            color: white; /* Color de texto para el encabezado */
+            border-radius: 8px; /* Bordes ligeramente redondeados */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 10px;
+        header h1 {
+            color: white; /* Color de texto blanco para el título principal */
+            font-size: 2.2rem; /* Aumentado ligeramente para más impacto */
+            margin-bottom: 8px;
         }
 
-        p.subtitle {
-            color: #666;
-            font-size: 1.1rem;
+        header p.subtitle {
+            color: rgba(255, 255, 255, 0.9); /* Blanco semitransparente para el subtítulo */
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 0; /* No margin-bottom ya que el padding del header lo maneja */
         }
 
         .instructions {
             background-color: #fff;
-            padding: 15px;
+            padding: 15px 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 30px;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            max-width: 800px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         /* Grid de Tarjetas */
@@ -75,7 +87,7 @@
             text-align: center;
             transition: transform 0.6s;
             transform-style: preserve-3d;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             border-radius: 15px;
         }
 
@@ -106,10 +118,10 @@
         }
 
         .card-front h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .hint {
@@ -130,30 +142,71 @@
         .card-back p {
             font-size: 1rem;
             line-height: 1.5;
+            margin: 0;
         }
 
         .card-back .ref {
-            margin-top: 15px;
+            margin-top: 20px;
             font-size: 0.75rem;
             opacity: 0.8;
             font-style: italic;
             border-top: 1px solid rgba(255,255,255,0.3);
             padding-top: 10px;
-            width: 80%;
+            width: 90%;
         }
 
         /* Footer */
         footer {
             margin-top: 50px;
-            font-size: 0.8rem;
+            padding: 20px;
+            font-size: 0.85rem;
             color: #777;
             text-align: center;
+            border-top: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         /* Responsive */
-        @media (max-width: 600px) {
-            h1 { font-size: 1.5rem; }
-            .card-container { grid-template-columns: 1fr; }
+        @media (max-width: 768px) { /* Ajuste el breakpoint para el header */
+            header {
+                padding: 15px 10px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p.subtitle {
+                font-size: 1.1rem;
+            }
+            .instructions {
+                font-size: 0.9rem;
+                padding: 12px 15px;
+            }
+            .card-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) { /* Breakpoint adicional para pantallas muy pequeñas */
+            body {
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            header p.subtitle {
+                font-size: 1rem;
+            }
+            .instructions {
+                font-size: 0.85rem;
+                padding: 10px 12px;
+            }
+            .card-container {
+                grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+            }
+            .card-front h2 { font-size: 1.2rem; }
+            .card-back p { font-size: 0.9rem; }
+            .card-back .ref { font-size: 0.7rem; }
         }
     </style>
 </head>
@@ -161,146 +214,92 @@
 
     <header>
         <h1>Tarjetas Didácticas de Transparencia</h1>
-        <p class="subtitle">Obligaciones para la Universidad Veracruzana</p> <!-- y Entes Autónomos -->
+        <p class="subtitle">Obligaciones Específicas para la Universidad Veracruzana (Ley 250)</p>
     </header>
 
     <div class="instructions">
         💡 <strong>Instrucciones:</strong> Haz clic en cualquier tarjeta para revelar la obligación de transparencia detallada al reverso.
     </div>
 
-    <div class="card-container">
-
-        <!-- Tarjeta 1 -->
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h2>Planes de Estudio</h2>
-                    <span class="hint">(Haz clic para ver detalle)</span>
-                </div>
-                <div class="card-face card-back">
-                    <p>Publicar planes y programas según sistema (escolarizado/abierto), perfil profesional, duración, asignaturas, valor en créditos y requisitos de titulación.</p>
-                    <span class="ref">Art. 57, Fracción I - Ley Número 250</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 2 -->
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h2>Sueldos y Estímulos</h2>
-                    <span class="hint">(Haz clic para ver detalle)</span>
-                </div>
-                <div class="card-face card-back">
-                    <p>La remuneración de profesores, incluyendo estímulos, prestaciones, gratificaciones, bonos, y sistemas de compensación, señalando nivel y monto.</p>
-                    <span class="ref">Art. 57, Fracción III - Ley Número 250</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 3 -->
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h2>Becas y Apoyos</h2>
-                    <span class="hint">(Haz clic para ver detalle)</span>
-                </div>
-                <div class="card-face card-back">
-                    <p>El listado de becas y apoyos otorgados, así como los procedimientos y requisitos específicos para obtenerlos.</p>
-                    <span class="ref">Art. 57, Fracción V - Ley Número 250</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 4 -->
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h2>Profesores con Licencia</h2>
-                    <span class="hint">(Haz clic para ver detalle)</span>
-                </div>
-                <div class="card-face card-back">
-                    <p>La lista actualizada con los nombres de los profesores que se encuentran con licencia o disfrutando de su año sabático.</p>
-                    <span class="ref">Art. 57, Fracción IV - Ley Número 250</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 5 -->
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h2>Evaluaciones Docentes</h2>
-                    <span class="hint">(Haz clic para ver detalle)</span>
-                </div>
-                <div class="card-face card-back">
-                    <p>Publicación de los resultados de las evaluaciones realizadas al cuerpo docente de la institución.</p>
-                    <span class="ref">Art. 57, Fracción VIII - Ley Número 250</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 6 -->
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h2>Estadísticas de Alumnos</h2>
-                    <span class="hint">(Haz clic para ver detalle)</span>
-                </div>
-                <div class="card-face card-back">
-                    <p>Número de estudiantes inscritos desglosado por área de conocimiento, tipo de sistema, modalidad, grado académico y título.</p>
-                    <span class="ref">Art. 57, Fracción X - Ley Número 250</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 7 -->
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h2>Egresados y Titulados</h2>
-                    <span class="hint">(Haz clic para ver detalle)</span>
-                </div>
-                <div class="card-face card-back">
-                    <p>Número de personas egresadas y tituladas, desglosado por área, sistema, modalidad y grado académico.</p>
-                    <span class="ref">Art. 57, Fracción XI - Ley Número 250</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 8 -->
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h2>Concursos de Oposición</h2>
-                    <span class="hint">(Haz clic para ver detalle)</span>
-                </div>
-                <div class="card-face card-back">
-                    <p>Las convocatorias públicas de los concursos de oposición para el ingreso o promoción del personal académico.</p>
-                    <span class="ref">Art. 57, Fracción VI - Ley Número 250</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 9 -->
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h2>Situación Financiera</h2>
-                    <span class="hint">(Haz clic para ver detalle)</span>
-                </div>
-                <div class="card-face card-back">
-                    <p>Estados financieros señalando activos en propiedades, equipo, inversiones patrimoniales, fideicomisos y efectivo.</p>
-                    <span class="ref">Art. 57, Fracción XII - Ley Número 250</span>
-                </div>
-            </div>
-        </div>
-
+    <div class="card-container" id="card-container">
+        <!-- Las tarjetas se generarán aquí con JavaScript -->
     </div>
 
     <footer>
-        <p>Fuente: LEY NÚMERO 250 DE TRANSPARENCIA Y ACCESO A LA INFORMACIÓN PÚBLICA DEL ESTADO DE VERACRUZ DE IGNACIO DE LA LLAVE</p>
+        <p>Fuente: LEY NÚMERO 250 DE TRANSPARENCIA Y ACCESO A LA INFORMACIÓN PÚBLICA DEL ESTADO DE VERACRUZ DE LA LLAVE</p>
     </footer>
+
+    <script>
+        const cardData = [
+            {
+                title: "Planes de Estudio",
+                details: "Publicar planes y programas según sistema (escolarizado/abierto), perfil profesional, duración, asignaturas, valor en créditos y requisitos de titulación.",
+                ref: "Art. 57, Fracción I"
+            },
+            {
+                title: "Sueldos y Estímulos",
+                details: "La remuneración de profesores, incluyendo estímulos, prestaciones, gratificaciones, bonos, y sistemas de compensación, señalando nivel y monto.",
+                ref: "Art. 57, Fracción III"
+            },
+            {
+                title: "Becas y Apoyos",
+                details: "El listado de becas y apoyos otorgados, así como los procedimientos y requisitos específicos para obtenerlos.",
+                ref: "Art. 57, Fracción V"
+            },
+            {
+                title: "Profesores con Licencia",
+                details: "La lista actualizada con los nombres de los profesores que se encuentran con licencia o disfrutando de su año sabático.",
+                ref: "Art. 57, Fracción IV"
+            },
+            {
+                title: "Evaluaciones Docentes",
+                details: "Publicación de los resultados de las evaluaciones realizadas al cuerpo docente de la institución.",
+                ref: "Art. 57, Fracción VIII"
+            },
+            {
+                title: "Estadísticas de Alumnos",
+                details: "Número de estudiantes inscritos desglosado por área de conocimiento, tipo de sistema, modalidad, grado académico y título.",
+                ref: "Art. 57, Fracción X"
+            },
+            {
+                title: "Egresados y Titulados",
+                details: "Número de personas egresadas y tituladas, desglosado por área, sistema, modalidad y grado académico.",
+                ref: "Art. 57, Fracción XI"
+            },
+            {
+                title: "Concursos de Oposición",
+                details: "Las convocatorias públicas de los concursos de oposición para el ingreso o promoción del personal académico.",
+                ref: "Art. 57, Fracción VI"
+            },
+            {
+                title: "Situación Financiera",
+                details: "Estados financieros señalando activos en propiedades, equipo, inversiones patrimoniales, fideicomisos y efectivo.",
+                ref: "Art. 57, Fracción XII"
+            }
+        ];
+
+        const container = document.getElementById('card-container');
+
+        cardData.forEach(data => {
+            const cardElement = document.createElement('div');
+            cardElement.className = 'card';
+            cardElement.onclick = () => cardElement.classList.toggle('flipped');
+
+            cardElement.innerHTML = `
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <h2>${data.title}</h2>
+                        <span class="hint">(Haz clic para ver detalle)</span>
+                    </div>
+                    <div class="card-face card-back">
+                        <p>${data.details}</p>
+                        <span class="ref">${data.ref} - Ley Número 250</span>
+                    </div>
+                </div>
+            `;
+            container.appendChild(cardElement);
+        });
+    </script>
 
 </body>
 </html>
