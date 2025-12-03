@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas Didácticas: Ley 250 Veracruz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos personalizados para el efecto de volteo 3D */
+        .perspective {
+            perspective: 1000px;
+        }
+        
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .card-inner.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .card-front {
+            background-color: #ffffff;
+            color: #1f2937;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .card-back {
+            background-color: #1e3a8a; /* Azul institucional */
+            color: white;
+            transform: rotateY(180deg);
+            border: 2px solid #1e3a8a;
+        }
+
+        .flip-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+
+    <!-- Encabezado -->
+    <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-6 shadow-lg">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-2xl md:text-3xl font-bold text-center">
+                Ley Número 250 de Transparencia
+            </h1>
+            <p class="text-center text-blue-100 mt-2 text-sm md:text-base">
+                Estado de Veracruz de Ignacio de la Llave
+            </p>
+            <div class="mt-4 flex justify-center">
+                <span class="bg-blue-800 px-4 py-1 rounded-full text-xs font-semibold tracking-wide uppercase border border-blue-500">
+                    Tema: Obligaciones de Transparencia
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <main class="max-w-7xl mx-auto p-6">
+        
+        <div class="mb-6 text-center text-gray-600 text-sm">
+            <p>Haz clic en una tarjeta para ver la descripción detallada.</p>
+        </div>
+
+        <!-- Grid de Tarjetas -->
+        <div id="cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Las tarjetas se generan dinámicamente con JS -->
+        </div>
+
+        <!-- Pie de página -->
+        <div class="mt-12 text-center text-gray-500 text-xs">
+            <p>Fuente: Gaceta Oficial del Estado de Veracruz (30 de junio de 2025) - Ley Número 250</p>
+        </div>
+    </main>
+
+    <script>
+        // Datos extraídos del PDF proporcionado (Artículos 42-64)
+        const flashcards = [
+            {
+                front: "Frecuencia de actualización",
+                back: "La información de las obligaciones de transparencia debe actualizarse por lo menos cada tres meses, salvo plazo diverso en la Ley (Art. 43)."
+            },
+            {
+                front: "Buscador obligatorio",
+                back: "La página de inicio de los sujetos obligados debe tener un vínculo directo y un buscador para consultar las obligaciones de transparencia (Art. 45)."
+            },
+            {
+                front: "Marco Normativo",
+                back: "Obligación de publicar leyes, códigos, reglamentos, decretos, manuales y reglas de operación aplicables al sujeto obligado (Art. 50-I)."
+            },
+            {
+                front: "Estructura Orgánica",
+                back: "Se debe publicar la estructura orgánica completa vinculando las atribuciones y responsabilidades de cada servidor público (Art. 50-II)."
+            },
+            {
+                front: "Directorio de servidores",
+                back: "Lista que incluye nombre, cargo, nivel, fecha de alta y contacto de todos los servidores públicos desde nivel de jefe de departamento (Art. 50-VI)."
+            },
+            {
+                front: "Remuneración bruta y neta",
+                back: "Información sobre sueldos, prestaciones, bonos, estímulos y compensaciones de todo el personal de base o confianza (Art. 50-VII)."
+            },
+            {
+                front: "Gastos de viáticos",
+                back: "Se deben publicar los gastos de representación y viáticos, así como el objeto e informe de la comisión correspondiente (Art. 50-VIII)."
+            },
+            {
+                front: "Declaraciones Patrimoniales",
+                back: "Versión pública de las declaraciones patrimoniales de los servidores públicos en los sistemas habilitados para ello (Art. 50-XI)."
+            },
+            {
+                front: "Presupuesto y Gasto",
+                back: "Información financiera sobre el presupuesto asignado y los informes del ejercicio trimestral del gasto (Art. 50-XIX)."
+            },
+            {
+                front: "Auditorías",
+                back: "Informes de resultados de las auditorías al ejercicio presupuestal y, en su caso, las aclaraciones correspondientes (Art. 50-XXII)."
+            },
+            {
+                front: "Licitaciones y Contratos",
+                back: "Resultados de adjudicaciones directas, invitaciones restringidas y licitaciones, incluyendo versiones públicas de los contratos (Art. 50-XXVI)."
+            },
+            {
+                front: "Plan Veracruzano de Desarrollo",
+                back: "Obligación específica del Poder Ejecutivo de publicar este plan, junto con el presupuesto de egresos (Art. 51-I)."
+            },
+            {
+                front: "Actas de Cabildo",
+                back: "Obligación específica de los Municipios de publicar actas de sesiones, controles de asistencia y sentido de votación (Art. 51-II)."
+            },
+            {
+                front: "Agenda Legislativa",
+                back: "Obligación específica del Poder Legislativo de publicar la agenda, gaceta, diario de debates y asistencia a sesiones (Art. 53)."
+            },
+            {
+                front: "Sentencias y Resoluciones",
+                back: "Obligación específica del Poder Judicial de publicar versiones públicas de sentencias que pongan fin a juicios (Art. 54)."
+            }
+        ];
+
+        const container = document.getElementById('cards-container');
+
+        // Icono SVG para la indicación de voltear
+        const flipIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+        `;
+
+        flashcards.forEach((card, index) => {
+            const cardElement = document.createElement('div');
+            cardElement.className = 'perspective h-64'; // Altura fija para uniformidad
+
+            cardElement.innerHTML = `
+                <div class="card-inner group shadow-xl rounded-xl" onclick="toggleCard(this)">
+                    <div class="card-front">
+                        <h3 class="text-xl font-bold text-blue-900 mb-2 text-center uppercase tracking-wider leading-tight">
+                            ${card.front}
+                        </h3>
+                        <div class="w-12 h-1 bg-blue-500 rounded mt-2 mb-4"></div>
+                        <p class="text-xs text-gray-400 font-semibold mt-auto">Frente</p>
+                        <div class="flip-icon">${flipIcon}</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="overflow-y-auto max-h-full scrollbar-hide">
+                            <p class="text-lg leading-relaxed font-medium">
+                                ${card.back}
+                            </p>
+                        </div>
+                        <p class="text-xs text-blue-200 mt-auto pt-4">Reverso</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(cardElement);
+        });
+
+        function toggleCard(element) {
+            element.classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>
