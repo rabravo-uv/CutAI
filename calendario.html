@@ -173,15 +173,20 @@
 
         const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-        // Base de datos exacta del PDF Calendario_conf.pdf
+         // Base de datos exacta del PDF Calendario_conf.pdf
         const events = {
             // ENERO
             "2026-0-1": [{ title: "Año Nuevo", type: "festivo", desc: "Festivo oficial" }],
             "2026-0-2": [{ title: "Vacaciones de Primavera", type: "vacaciones", desc: "Periodo vacacional de Semana Santa" }],
             // FEBRERO
             "2026-1-2": [{ title: "Aniversario Constitución", type: "festivo", desc: "En sustitución del 5 de febrero" }],
+            "2026-1-16": [{ title: "Carnaval de Vearacruz", type: "descanso", desc: "Día de descanso" }],
+            "2026-1-17": [{ title: "Carnaval de Veracryz", type: "descanso", desc: "Día de descanso" }],
+            "2026-1-18": [{ title: "Carbaval de Verazruz", type: "descanso", desc: "Día de descanso" }],
+            "2026-1-24": [{ title: "Dia de la Bandera", type: "festivo", desc: "Día de la Bandera" }],
             // MARZO
             "2026-2-16": [{ title: "Natalicio de Benito Juárez", type: "festivo", desc: "En sustitución del 21 de marzo" }],
+            "2026-2-18": [{ title: "Natalicio de Benito Juárez", type: "festivo", desc: "En sustitución del 21 de marzo" }],
             "2026-2-30": [{ title: "Vacaciones de Primavera", type: "vacaciones", desc: "Periodo vacacional de Semana Santa" }],
             "2026-2-31": [{ title: "Vacaciones de Primavera", type: "vacaciones", desc: "Periodo vacacional de Semana Santa" }],
             // ABRIL
@@ -194,17 +199,21 @@
             "2026-4-10": [{ title: "Día de las Madres", type: "descanso", desc: "Día de descanso" }],
             "2026-4-15": [{ title: "Día del Maestro", type: "descanso", desc: "Día de descanso" }],
             // JULIO (Vacaciones de Verano)
-            ...Object.fromEntries(Array.from({length: 12}, (_, i) => [`2026-6-${i+6}`, [{ title: "Vacaciones de Verano", type: "vacaciones", desc: "Periodo vacacional" }]])),
+            ...Object.fromEntries(Array.from({length: 19}, (_, i) => [`2026-6-${i+13}`, [{ title: "Vacaciones de Verano", type: "vacaciones", desc: "Periodo vacacional" }]])),
             // SEPTIEMBRE
+            "2026-8-15": [{ title: "Grito de la Independencia de México", type: "festivo", desc: "Festivo oficial" }],
             "2026-8-16": [{ title: "Independencia de México", type: "festivo", desc: "Festivo oficial" }],
-            // NOVIEMBRE
+             // OCTUBRE
+            "2026-9-12": [{ title: "Día de festiva", type: "festivo", desc: "Día de descanso" }],
+            "2026-9-21": [{ title: "Día de festiva", type: "festivo", desc: "Día de descanso" }],
+           // NOVIEMBRE
             "2026-10-1": [{ title: "Día de Muertos", type: "descanso", desc: "Día de descanso" }],
+            "2026-10-2": [{ title: "Día de Muertos", type: "descanso", desc: "Día de descanso" }],
             "2026-10-16": [{ title: "Revolución Mexicana", type: "festivo", desc: "En sustitución del 20 de noviembre" }],
             // DICIEMBRE
-            "2026-11-12": [{ title: "Día de la Virgen", type: "descanso", desc: "Día de descanso" }],
             "2026-11-25": [{ title: "Navidad", type: "festivo", desc: "Festivo oficial" }],
-            // Vacaciones Invierno (21 al 31)
-            ...Object.fromEntries(Array.from({length: 11}, (_, i) => [`2026-11-${i+21}`, [{ title: "Vacaciones de Invierno", type: "vacaciones", desc: "Periodo vacacional" }]]))
+            // Vacaciones Invierno (17 al 31)
+            ...Object.fromEntries(Array.from({length: 15}, (_, i) => [`2026-11-${i+17}`, [{ title: "Vacaciones de Invierno", type: "vacaciones", desc: "Periodo vacacional" }]]))
         };
 
         function renderCalendar(year, month) {
