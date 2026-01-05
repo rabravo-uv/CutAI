@@ -46,7 +46,7 @@
             border: 1px solid #e5e7eb;
         }
         .event-tag {
-            font-size: 9px;
+            font-size: 12px;
             padding: 1px 4px;
             border-radius: 3px;
             margin-bottom: 2px;
@@ -77,6 +77,46 @@
         .active-day {
             border: 1px solid #94a3b8 !important;
         }
+        .calendar-day.weekend {
+            background-color: #d1d5db;
+        }
+        .day-header.weekend {
+            background-color: #9ca3af;
+            color: white;
+        }
+        .calendar-day.workday-focus {
+            background-color: #dbeafe;
+        }
+        .day-header.workday-focus {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .calendar-day.tuesday-focus {
+            background-color: #dcfce7;
+        }
+        .day-header.tuesday-focus {
+            background-color: #22c55e;
+            color: white;
+        }
+        .calendar-day.wednesday-focus {
+            background-color: #fce7f3;
+        }
+        .day-header.wednesday-focus {
+            background-color: #ec4899;
+            color: white;
+        }
+        .calendar-day.thursday-focus {
+            background-color: #fef9c3;
+        }
+        .day-header.thursday-focus {
+            background-color: #facc15;
+            color: #78350f;
+        }
+        .calendar-day.red-focus {
+            background-color: #d93434 !important;
+            border-color: #661c1c!important;
+            color: white; /* <-- Agregado para texto blanco */
+        }
     </style>
 </head>
 <body>
@@ -86,14 +126,15 @@
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-4">
                 <div class="bg-white p-1 rounded shadow-inner">
-                    <svg width="35" height="35" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <img src="https://www.uv.mx/transparencia/files/2021/05/37.png" alt="" width="35" height="35" viewBox="0 0 100 100" fill="none">
+                    <!-- <svg width="35" height="35" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="100" height="100" rx="8" fill="white"/>
                         <path d="M20 20H40L55 65L70 20H90L70 80H35L20 20Z" fill="#004a8e"/>
-                    </svg>
+                    </svg> -->
                 </div>
                 <div>
                     <h1 class="text-white text-lg font-bold leading-tight">Universidad Veracruzana</h1>
-                    <p class="text-green-400 text-[10px] font-medium tracking-widest uppercase">Personal de Confianza</p>
+                    <p class="text-green-400 text-[10px] font-medium tracking-widest uppercase">-</p>
                 </div>
             </div>
             <div class="hidden md:block text-right">
@@ -124,15 +165,15 @@
             <div class="flex flex-wrap justify-center gap-2">
                 <div class="flex items-center px-3 py-1 bg-blue-50 rounded border border-blue-200">
                     <span class="w-2.5 h-2.5 bg-blue-600 rounded-full mr-2"></span>
-                    <span class="text-[10px] font-bold text-blue-800">Festivos</span>
+                    <span class="text-[16px] font-bold text-blue-800">Festivos</span>
                 </div>
                 <div class="flex items-center px-3 py-1 bg-green-50 rounded border border-green-200">
                     <span class="w-2.5 h-2.5 bg-green-600 rounded-full mr-2"></span>
-                    <span class="text-[10px] font-bold text-green-800">Descansos</span>
+                    <span class="text-[16px] font-bold text-green-800">Descansos</span>
                 </div>
                 <div class="flex items-center px-3 py-1 bg-orange-50 rounded border border-orange-200">
                     <span class="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-                    <span class="text-[10px] font-bold text-orange-800">Vacaciones</span>
+                    <span class="text-[16px] font-bold text-orange-800">Vacaciones</span>
                 </div>
             </div>
         </div>
@@ -140,19 +181,41 @@
         <!-- Calendario -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
             <div class="calendar-grid">
-                <div class="day-header">Dom</div>
-                <div class="day-header">Lun</div>
-                <div class="day-header">Mar</div>
-                <div class="day-header">Mié</div>
-                <div class="day-header">Jue</div>
-                <div class="day-header">Vie</div>
-                <div class="day-header">Sáb</div>
+                <div class="day-header weekend">Dom</div>
+                <div class="day-header workday-focus">Lun</div>
+                <div class="day-header tuesday-focus">Mar</div>
+                <div class="day-header wednesday-focus">Mié</div>
+                <div class="day-header thursday-focus">Jue</div>
+                <div class="day-header workday-focus">Vie</div>
+                <div class="day-header weekend">Sáb</div>
             </div>
             <div id="calendarDays" class="calendar-grid"></div>
         </div>
 
         <div class="mt-6 p-4 bg-gray-100 rounded-lg text-center border border-gray-300">
             <p class="text-sm font-bold text-gray-700">Inicio de labores 2027: <span class="text-uv-blue">Lunes 04 de enero de 2027</span></p>
+        </div>
+
+        <div class="mt-8 p-4 bg-blue-50 rounded-lg text-center border-l-4 border-blue-600">
+            <p class="text-sm font-semibold text-blue-900 flex items-center gap-2">
+                <span class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">ℹ</span>
+                Envío de oficio, carátula y versiones públicas a <span class="font-bold text-blue-700">clasificacion@uv.mx</span>
+            </p>
+            <p class="text-sm font-semibold text-green-900 flex items-center gap-2">
+                <span class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold">✓</span>
+                Revisión del Comité de Transparencia
+            </p>
+             <p class="text-sm font-semibold text-pink-900 flex items-center gap-2" >
+            <span class="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center text-white text-xs font-bold">📋</span>
+            Atención de observacione</p>            
+            <p class="text-sm font-semibold text-yellow-900 flex items-center gap-2">
+                <span class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center text-white text-xs font-bold">●</span>
+                Sesión del Comité de Transparencia Notificación de Acta del Comité de Transparencia
+            </p>
+            <p class="text-sm font-semibold text-red-900 flex items-center gap-2">
+                <span class="w-6 h-6 bg-[#d93434] rounded-full flex items-center justify-center text-white text-xs font-bold">●</span>
+                Fecha límite para enviar comprobante de carga y archivo a Cutai
+            </p>
         </div>
     </main>
 
@@ -226,18 +289,43 @@
             const daysInMonth = new Date(year, month + 1, 0).getDate();
 
             for (let i = 0; i < firstDay; i++) {
-                container.innerHTML += '<div class="calendar-day bg-gray-50 opacity-40"></div>';
+                const weekendClass = (i === 0 || i === 6) ? ' weekend' : '';
+                container.innerHTML += `<div class="calendar-day bg-gray-50 opacity-40${weekendClass}"></div>`;
             }
 
             for (let day = 1; day <= daysInMonth; day++) {
                 const dateKey = `${year}-${month}-${day}`;
                 const dayEvents = events[dateKey] || [];
+                const dayOfWeek = (firstDay + day - 1) % 7;
+                const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+                const isWorkdayFocus = dayOfWeek === 1 || dayOfWeek === 5;
+                const isTuesdayFocus = dayOfWeek === 2;
+                const isWednesdayFocus = dayOfWeek === 3;
+                const isThursdayFocus = dayOfWeek === 4;
+                const isRedFocus = (
+                    (month === 0 && day === 30) ||
+                    (month === 3 && day === 30) ||
+                    (month === 6 && day === 30) ||
+                    (month === 9 && day === 30)
+                );
+
                 let classes = 'calendar-day p-2 cursor-pointer flex flex-col';
                 if (dayEvents.length > 0) classes += ' active-day';
+                if (isWeekend) classes += ' weekend';
+                if (isWorkdayFocus) classes += ' workday-focus';
+                if (isTuesdayFocus) classes += ' tuesday-focus';
+                if (isWednesdayFocus) classes += ' wednesday-focus';
+                if (isThursdayFocus) classes += ' thursday-focus';
+                if (isRedFocus) classes += ' red-focus';
+
+                // Cambia aquí: agrega text-white al span si es RedFocus
+                const dayNumberClass = isRedFocus
+                    ? 'text-sm font-bold text-white'
+                    : `text-sm font-bold ${dayEvents.length > 0 ? 'text-uv-blue' : 'text-gray-500'}`;
 
                 const html = `
                     <div class="${classes}" onclick="showDetails('${dateKey}', ${day})">
-                        <span class="text-sm font-bold ${dayEvents.length > 0 ? 'text-uv-blue' : 'text-gray-500'}">${day}</span>
+                        <span class="${dayNumberClass}">${day}</span>
                         <div class="mt-1">
                             ${dayEvents.map(e => `<span class="event-tag tag-${e.type}">${e.title}</span>`).join('')}
                         </div>
