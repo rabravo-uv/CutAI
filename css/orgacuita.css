@@ -1,0 +1,62 @@
+/**
+ * global.css
+ * UV 2021
+ *
+ * La hoja de estilos ORGANIGRAMA del sitio
+ * encontrada en todas las paginas.
+ */
+#chart-container {
+font-family: Arial;
+font-size: large;
+height: 420px;
+border: 1px solid #aaa;
+overflow: auto;
+text-align: center;
+}
+.orgchart .pipeline1 .title { width: 280px;}
+.orgchart .pipeline1 .content { width: 280px; }
+.orgchart .middle-level .title { width: 280px;}
+.orgchart .middle-level .content { width: 280px; height: 60px;}
+.orgchart .product-dept .title { width: 280px;}
+.orgchart .product-dept .content { width: 280px; height: 60px;}
+.orgchart { background: #fff; }
+.orgchart td.left, .orgchart td.right, .orgchart td.top { border-color: #aaa; }
+.orgchart td>.down { background-color: #aaa; }
+.orgchart .middle-level .title { background-color: #006699; }
+.orgchart .middle-level .content { border-color: #006699; }
+.orgchart .product-dept .title { background-color: #009933; }
+.orgchart .product-dept .content { border-color: #009933; }
+.orgchart .rd-dept .title { background-color: #993366; }
+.orgchart .rd-dept .content { border-color: #993366; }
+.orgchart .pipeline1 .title { background-color: #996633; }
+.orgchart .pipeline1 .content { border-color: #996633; }
+.orgchart .frontend1 .title { background-color: #cc0066; }
+.orgchart .frontend1 .content { border-color: #cc0066; }
+.orgchart .second-menu-icon {
+    transition: opacity .5s;
+    opacity: 0;
+    right: -5px;
+    top: -5px;
+    z-index: 2;
+    position: absolute;
+}
+.orgchart .second-menu-icon::before { background-color: rgba(68, 157, 68, 0.5); }
+.orgchart .second-menu-icon:hover::before { background-color: #449d44; }
+.orgchart .node:hover .second-menu-icon { opacity: 1; }
+.orgchart .node .second-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: -70px;
+    border-radius: 35px;
+    box-shadow: 0 0 10px 1px #999;
+    background-color: #fff;
+    z-index: 1;
+}
+.orgchart .node .second-menu .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    float: left;
+    margin: 5px;
+}
