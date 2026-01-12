@@ -33,7 +33,7 @@ $('#chart-container').orgchart({
         $(this).siblings('.second-menu').toggle();
         }
     });
-    var secondMenu = '<div class="second-menu"><img class="avatar" src="https://rabravo.droppages.com/img/cutai' + data.id + '.jpg"></div>';
+    var secondMenu = '<div class="second-menu"><img class="avatar" src="https://github.dev/rabravo-uv/CutAI/img/cutai' + data.id + '.jpg"></div>';
     $node.append(secondMenuIcon).append(secondMenu);
 }
 
