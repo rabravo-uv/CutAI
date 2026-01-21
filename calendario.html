@@ -117,6 +117,10 @@
             border-color: #661c1c!important;
             color: white; /* <-- Agregado para texto blanco */
         }
+        .current-day-highlight {
+            border: 2px solid var(--uv-green) !important;
+            box-shadow: 0 0 0 2px var(--uv-green);
+        }
     </style>
 </head>
 <body>
@@ -238,14 +242,13 @@
 
          // Base de datos exacta del PDF Calendario_conf.pdf
         const events = {
-            // ENERO
+            // ENERO 2026
             "2026-0-1": [{ title: "Año Nuevo", type: "festivo", desc: "Festivo oficial" }],
-            "2026-0-2": [{ title: "Vacaciones de Primavera", type: "vacaciones", desc: "Periodo vacacional de Semana Santa" }],
-            // FEBRERO
+            // FEBRERO 2026
             "2026-1-2": [{ title: "Aniversario Constitución", type: "festivo", desc: "En sustitución del 5 de febrero" }],
-            "2026-1-16": [{ title: "Carnaval de Vearacruz", type: "descanso", desc: "Día de descanso" }],
-            "2026-1-17": [{ title: "Carnaval de Veracryz", type: "descanso", desc: "Día de descanso" }],
-            "2026-1-18": [{ title: "Carnaval de Verazruz", type: "descanso", desc: "Día de descanso" }],
+            "2026-1-16": [{ title: "Carnaval de Veracruz", type: "descanso", desc: "Día de descanso" }],
+            "2026-1-17": [{ title: "Carnaval de Veracruz", type: "descanso", desc: "Día de descanso" }],
+            "2026-1-18": [{ title: "Carnaval de Veracruz", type: "descanso", desc: "Día de descanso" }],
             "2026-1-24": [{ title: "Día de la Bandera", type: "festivo", desc: "Día de la Bandera" }],
             // MARZO
             "2026-2-16": [{ title: "Natalicio de Benito Juárez", type: "festivo", desc: "En sustitución del 21 de marzo" }],
@@ -262,13 +265,12 @@
             "2026-4-10": [{ title: "Día de las Madres", type: "descanso", desc: "Día de descanso" }],
             "2026-4-15": [{ title: "Día del Maestro", type: "descanso", desc: "Día de descanso" }],
             // JULIO (Vacaciones de Verano)
-            ...Object.fromEntries(Array.from({length: 19}, (_, i) => [`2026-6-${i+13}`, [{ title: "Vacaciones de Verano", type: "vacaciones", desc: "Periodo vacacional" }]])),
+            ...Object.fromEntries(Array.from({length: 19}, (_, i) => [`2026-6-${i + 13}`, [{ title: "Vacaciones de Verano", type: "vacaciones", desc: "Periodo vacacional" }]])),
             // SEPTIEMBRE
             "2026-8-15": [{ title: "Grito de la Independencia de México", type: "festivo", desc: "Festivo oficial" }],
             "2026-8-16": [{ title: "Independencia de México", type: "festivo", desc: "Festivo oficial" }],
              // OCTUBRE
-            "2026-9-12": [{ title: "Día de festiva", type: "festivo", desc: "Día de descanso" }],
-            "2026-9-21": [{ title: "Día de festiva", type: "festivo", desc: "Día de descanso" }],
+            "2026-9-12": [{ title: "Día de la Raza", type: "festivo", desc: "Día de descanso" }],
            // NOVIEMBRE
             "2026-10-1": [{ title: "Día de Muertos", type: "descanso", desc: "Día de descanso" }],
             "2026-10-2": [{ title: "Día de Muertos", type: "descanso", desc: "Día de descanso" }],
@@ -276,7 +278,7 @@
             // DICIEMBRE
             "2026-11-25": [{ title: "Navidad", type: "festivo", desc: "Festivo oficial" }],
             // Vacaciones Invierno (17 al 31)
-            ...Object.fromEntries(Array.from({length: 15}, (_, i) => [`2026-11-${i+17}`, [{ title: "Vacaciones de Invierno", type: "vacaciones", desc: "Periodo vacacional" }]]))
+            ...Object.fromEntries(Array.from({length: 15}, (_, i) => [`2026-11-${i + 17}`, [{ title: "Vacaciones de Invierno", type: "vacaciones", desc: "Periodo vacacional" }]]))
         };
 
         function renderCalendar(year, month) {
@@ -303,13 +305,17 @@
                 const isWednesdayFocus = dayOfWeek === 3;
                 const isThursdayFocus = dayOfWeek === 4;
                 const isRedFocus = (
-                    (month === 0 && day === 30) ||
-                    (month === 3 && day === 30) ||
-                    (month === 6 && day === 30) ||
-                    (month === 9 && day === 30)
+                    (month === 0 && day === 30) || // Enero 30
+                    (month === 3 && day === 30) || // Abril 30
+                    (month === 6 && day === 31) || // Julio 31
+                    (month === 9 && day === 30) // Octubre 30
                 );
 
                 let classes = 'calendar-day p-2 cursor-pointer flex flex-col';
+                const today = new Date();
+                const isCurrentDay = (year === today.getFullYear() && month === today.getMonth() && day === today.getDate());
+                
+                if (isCurrentDay) classes += ' current-day-highlight border-uv-green';
                 if (dayEvents.length > 0) classes += ' active-day';
                 if (isWeekend) classes += ' weekend';
                 if (isWorkdayFocus) classes += ' workday-focus';
