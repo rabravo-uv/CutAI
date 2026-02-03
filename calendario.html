@@ -164,6 +164,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
+                <button onclick="goToToday()" class="px-4 py-2 bg-uv-green text-white rounded-lg font-semibold hover:bg-opacity-90 transition border border-uv-green">
+                    Hoy
+                </button>
             </div>
             
             <div class="flex flex-wrap justify-center gap-2">
@@ -374,6 +377,13 @@
             currentMonth += delta;
             if (currentMonth > 11) { currentMonth = 0; currentYear++; }
             else if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+            renderCalendar(currentYear, currentMonth);
+        }
+
+        function goToToday() {
+            const today = new Date();
+            currentYear = today.getFullYear();
+            currentMonth = today.getMonth();
             renderCalendar(currentYear, currentMonth);
         }
 
