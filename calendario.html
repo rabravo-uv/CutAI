@@ -22,6 +22,7 @@
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
+            width: 100%;
         }
         .calendar-day {
             min-height: 100px;
@@ -51,9 +52,7 @@
             border-radius: 3px;
             margin-bottom: 2px;
             display: block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            white-space: normal;
             font-weight: 600;
         }
         /* Tipos de eventos basados en el PDF */
@@ -121,6 +120,24 @@
             border: 2px solid var(--uv-green) !important;
             box-shadow: 0 0 0 2px var(--uv-green);
         }
+        @media (max-width: 768px) {
+            .calendar-grid { min-width: 100%; }
+            .calendar-day {
+                min-height: 80px;
+                padding: 2px;
+            }
+            .event-tag {
+                font-size: 9px;
+                white-space: normal;
+                line-height: 1.1;
+                padding: 1px 3px;
+            }
+            .day-header {
+                font-size: 0.65rem;
+                padding: 6px 0;
+            }
+            h2#currentMonthLabel { font-size: 1.25rem; }
+        }
     </style>
 </head>
 <body>
@@ -186,7 +203,7 @@
         </div>
 
         <!-- Calendario -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+        <div class="bg-white rounded-xl shadow-lg overflow-x-auto md:overflow-x-visible border border-gray-200">
             <div class="calendar-grid">
                 <div class="day-header weekend">Dom</div>
                 <div class="day-header workday-focus">Lun</div>
