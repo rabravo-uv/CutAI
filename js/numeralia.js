@@ -1,10 +1,10 @@
 
 /* global $ */
-var tr=[278,277,57227,0]; 
-var ai=[641,578,7,34];
-var pdp=[46,42,86,0];
-var ct=[44,155,29,37,51,16,32];
-var tt=[626];
+var tr=[299,299,17369,0]; 
+var ai=[111,86,5,2];
+var pdp=[14,14,30,0];
+var ct=[11,50,5,23,12,3,6];
+var tt=[72];
 $(document).ready(function(){
         $("#ai0").text(ai[0]).number( true, 0 );
         $("#ai1").text(ai[1]).number( true, 0 );
