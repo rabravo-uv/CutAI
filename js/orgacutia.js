@@ -4,7 +4,7 @@ $(function() {
 var cor='<div> Coordinadora provisional<br><a  data-toggle="modal" data-target=".bd-cutai01-modal-lg" style="cursor: pointer;">Mtra. Yadira del Carmen Rosales Ruiz.</a>'
 var tra='<div> Jefa <br><a  data-toggle="modal" data-target=".bd-cutai02-modal-lg" style="cursor: pointer;">#</a></div>'
 var Acc='<div> Jefe <br><a  data-toggle="modal" data-target=".bd-cutai03-modal-lg" style="cursor: pointer;">Mtro. Ricardo Amaro Santos.</a></div>'
-var Dat='<div> Oficial <br><a  data-toggle="modal" data-target=".bd-cutai04-modal-lg" style="cursor: pointer;">L.A.E.. Elizabeth Ramzahuer Villa.</a></div>'
+var Dat='<div> Oficial <br><a  data-toggle="modal" data-target=".bd-cutai04-modal-lg" style="cursor: pointer;">Mtra. Elizabeth Ramzahuer Villa.</a></div>'
 var datascource = {
 'id': 0, 'name': 'Rectoria', 'title': 'Rector', 'className': 'pipeline1',
 'children' :[
