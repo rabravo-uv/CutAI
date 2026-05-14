@@ -14,7 +14,7 @@ $(function(){
  $(document).ready(function(){
      
      $("button.home").click(function(){
-	 $("#JG, #Rec, #DDU, #SA, #SAF", "#SDI").hide();
+	 $("#JG, #Rec, #DDU, #SA, #SAF, #SDI").hide();
          $(".entry-title").toggle();
          $("#inicio").toggle();
          $("#btn-group").hide();
