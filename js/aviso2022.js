@@ -7,7 +7,7 @@ var i = 0;
 
 $(function(){
      $("#JG, #Rec, #DDU, #SA, #SAF, #SDI").hide();
-     $("#btn-group").hide();
+     $("#botone_nav").hide();
      i = 0;
 });
 
@@ -17,7 +17,7 @@ $(function(){
 	 $("#JG, #Rec, #DDU, #SA, #SAF, #SDI").hide();
          $(".entry-title").toggle();
          $("#inicio").toggle();
-         $("#btn-group").hide();
+         $("#botone_nav").hide();
          window.location.href = window.location.href;
          $("html, body").animate({ scrollTop: 0 }, 1000);
          return false;
@@ -132,7 +132,7 @@ $(function(){
          $("#JG").show();
          $("#inicio").hide();
          $(".entry-title").hide();
-         $("#btn-group").show();
+         $("#botone_nav").show();
          $("button.previous").hide();
          $("button.next").html(Aarray[1] + nex);
          return false;
@@ -143,7 +143,7 @@ $(function(){
          $("#Rec").show();
          $("#inicio").hide();
          $(".entry-title").hide();
-         $("#btn-group").show();
+         $("#botone_nav").show();
          $("button.previous").show();                    
          $("button.previous").html(pre + Aarray[0]);
          $("button.next").html(Aarray[2] + nex);
@@ -155,7 +155,7 @@ $(function(){
          $("#DDU").show();
          $("#inicio").hide();
          $(".entry-title").hide();
-         $("#btn-group").show();
+         $("#botone_nav").show();
          $("button.previous").show();    
          $("button.previous").html(pre + Aarray[1]);
          $("button.next").html(Aarray[3] + nex);
@@ -167,7 +167,7 @@ $(function(){
          $("#SA").show();
          $("#inicio").hide();
          $(".entry-title").hide();
-         $("#btn-group").show();
+         $("#botone_nav").show();
          $("button.previous").show();    
          $("button.previous").html(pre + Aarray[2]);
          $("button.next").html(Aarray[4] + nex);
@@ -179,7 +179,7 @@ $(function(){
          $("#SAF").show();
          $("#inicio").hide();
          $(".entry-title").hide();
-         $("#btn-group").show();
+         $("#botone_nav").show();
          $("button.previous").show();    
          $("button.previous").html(pre + Aarray[3]);
          $("button.next").html(Aarray[5] + nex);
@@ -191,7 +191,7 @@ $(function(){
          $("#SDI").show();
          $("#inicio").hide();
          $(".entry-title").hide();
-         $("#btn-group").show();
+         $("#botone_nav").show();
          $("button.previous").show();    
          $("button.previous").html(pre + Aarray[4]);
          $("button.next").hide();
