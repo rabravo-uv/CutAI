@@ -87,7 +87,6 @@ $(function(){
                  $("button.previous").html(pre + Aarray[0]);
                  $("button.next").html(Aarray[2] + nex);
                  $("html, body").animate({ scrollTop: 0 }, 1000);
-                 console.log(' next ' + i);
                  return false;
              case 1:
                  i = 2;
