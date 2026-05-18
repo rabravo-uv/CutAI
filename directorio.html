@@ -282,7 +282,7 @@
             <div class="main-org-body flex-grow-1">
                 <!-- NIVEL 1: JEFE -->
                 <div class="text-center">
-                    <div class="person-card" onclick="showCV('Mtra. Yadira del Carmen Rosales Ruiz', 'Titular', 'Coordinadora provisional', 'jefe_portrait', 'Licenciada en Derecho por la Universidad Veracruzana, Maestra en Políticas Públicas por El Colegio de Veracruz. Certificada en la Competencia Laboral (Filitación de la información en poder del sujeto obligado).','Cuenta con 17 años de experiencia en materia de transparencia, protección de datos personales, archivos y gobierno abierto. Seleccionada nacional del Programa de Formación de Agentes Locales de Cambio en Gobierno Abierto y Desarrollo Sostenible del PNUD.',  'yrosales@uv.mx', '10501')">
+                    <div class="person-card" onclick="showCV('Mtra. Yadira del Carmen Rosales Ruiz', 'Titular', 'Coordinadora provisional', 'jefe_portrait', 'Licenciada en Derecho por la Universidad Veracruzana, Maestra en Políticas Públicas por El Colegio de Veracruz, Doctoranda en Administración Pública.', 'Cuenta con 17 años de experiencia en materia de transparencia, protección de datos personales, archivos y gobierno abierto. Seleccionada nacional del Programa de Formación de Agentes Locales de Cambio en Gobierno Abierto y Desarrollo Sostenible del PNUD.',  'yrosales@uv.mx', '10501')">
                         <div class="avatar-container">
                             <img src="img/yadira.jpeg" alt="Jefe" class="avatar">
                         </div>
@@ -331,7 +331,7 @@
                     <!-- ÁREA 2 -->
                     <div class="area-column">
                         <div class="line-v"></div>
-                        <div class="person-card" onclick="showCV('Mtro. Ricardo Amaro Santos', 'Área B', 'Área Operativa', 'area_lead_portrait2','Maestro en Derechos Humanos y Juicio de Amparo, Universidad de Xalapa. Licenciado en Derecho y Corporativo Empresarial | Universidad Unimetropolitana de Monterrey. Certificación: Facilitación de Información en Poder del Sujeto Obligado. Diplomado: Formación Integral de Oficiales de Cumplimiento Normativo, Transparencia y Anticorrupción. Sistema de Gestión y Protección de Datos Personales.', 'Cuenta con experiencia en derecho constitucional, derechos humanos con trayectoria en la administración pública. Certificado en materia de transparencia, acceso a la información pública y protección de datos personales. ', 'riamaro@uv.mx', '10505')">
+                        <div class="person-card" onclick="showCV('Mtro. Ricardo Amaro Santos', 'Área B', 'Jefe de Departamento de Acceso a la Informacióna', 'area_lead_portrait2','Maestro en Derechos Humanos y Juicio de Amparo, Universidad de Xalapa. Licenciado en Derecho y Corporativo Empresarial | Universidad Unimetropolitana de Monterrey. Certificación: Facilitación de Información en Poder del Sujeto Obligado. Diplomado: Formación Integral de Oficiales de Cumplimiento Normativo, Transparencia y Anticorrupción. Sistema de Gestión y Protección de Datos Personales.', 'Cuenta con experiencia en derecho constitucional, derechos humanos con trayectoria en la administración pública. Certificado en materia de transparencia, acceso a la información pública y protección de datos personales. ', 'riamaro@uv.mx', '10505')">
                             <div class="avatar-container">
                                 <img src="img/ricardo.jpeg" alt="Area Lead" class="avatar">
                             </div>
@@ -447,7 +447,7 @@
         function showCV(name, role, dept, imgKey, edu, bio, email, ext) {
             document.getElementById('mNameHeader').textContent = name;
             document.getElementById('mRoleHeader').textContent = role;
-            
+            document.getElementById('mDept').textContent = dept;
             document.getElementById('mEducation').textContent = edu;
             document.getElementById('mBio').textContent = bio;
             document.getElementById('mEmail').textContent = email;
