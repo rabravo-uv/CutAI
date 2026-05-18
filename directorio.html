@@ -133,7 +133,10 @@
         /* Staff Section (Lateral) */
         .staff-section {
             display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             justify-content: center;
+            align-items: flex-start;
             gap: 20px;
             margin: 30px 0;
             padding: 20px;
@@ -150,6 +153,13 @@
             text-align: center;
             margin-bottom: 15px;
             opacity: 0.7;
+        }
+
+        @media (max-width: 992px) {
+            .staff-section {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         /* Modals */
@@ -255,29 +265,6 @@
 
         <div class="d-flex flex-column flex-lg-row align-items-start justify-content-center gap-4">
             
-            <!-- STAFF DE SOPORTE (VERTICAL IZQUIERDA - BAJADO A NIVEL DE AREAS) -->
-            <div class="staff-column-container" style="min-width: 240px; margin-top: 320px;">
-                <div class="staff-title">Staff de Soporte y Administración</div>
-                <div class="staff-section flex-column align-items-center" style="margin: 0; padding: 25px 15px;">
-                    <div class="person-card mb-4" onclick="showCV('Lic. Tania Hernández Vicente', 'Staff de Soporte', 'Administradora', 'staff_portrait', 'Licenciatura en Derecho, Universidad IVES, Generación: 2018-2022. Licenciatura en Administración de Empresas, Universidad Veracruzana, Generación: 1994-1999.', 'Cuenta con más de 25 años de experiencia en funciones administrativas; gestión y control de recursos, contratos, nóminas, inventarios, afectaciones presupuestales, requisiciones, elaboración y seguimiento de PBR, etc.', 'tahernandez@uv.mx', '10500')">                       <div class="avatar-container" style="background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);">
-                            <img src="img/tania.jpeg" alt="Staff" class="avatar">
-                        </div>
-                        <div class="name">Lic. Tania Hernández Vicente</div>
-                        <div class="role">Administradora</div>
-                        <span class="badge-tag" style="background: rgba(16, 185, 129, 0.1); color: #059669;">Staff</span>
-                    </div>
-                    
-                    <div class="person-card" onclick="showCV('T. I. Rafael Bravo Reséndiz', 'IT', 'Apoyo Informático', 'analyst_portrait', 'Técnico Profesional Programación.', 'Profesional con experiencia en administración de sistemas, redes LAN y desarrollo e implementación de sistemas de nómina, producción, compras, inventarios y comercio exterior en empresas del sector textil. Ha impartido clases de programación e informática en instituciones educativas de Aguascalientes y Jalisco.Cuenta con experiencia en instalación y administración de servidores, dominios y Exchange Server 2000, así como en proyectos de infraestructura tecnológica y conectividad educativa. Participó en el proyecto federal Enciclomedia en Veracruz, instalando aulas y antenas satelitales en diversos municipios.Ha realizado cursos de actualización en tecnologías Microsoft Windows NT y actualmente se desempeña como Encargado del Área de Informática en la Coordinación Universitaria de Transparencia y Acceso a la Información.', 'rabravo@uv.mx', '10503')">
-                        <div class="avatar-container" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);">
-                            <img src="img/rafael1.jpeg" alt="IT Support" class="avatar">
-                        </div>
-                        <div class="name">T. I. Rafael Bravo Reséndiz</div>
-                        <div class="role">Apoyo Informático</div>
-                        <span class="badge-tag" style="background: rgba(245, 158, 11, 0.1); color: #d97706;">IT Staff</span>
-                    </div>
-                </div>
-            </div>
-
             <!-- CUERPO PRINCIPAL DEL ORGANIGRAMA -->
             <div class="main-org-body flex-grow-1">
                 <!-- NIVEL 1: JEFE -->
@@ -317,7 +304,7 @@
                         
                         <!-- Analistas Área A -->
                         <div class="analysts-group">
-                            <div class="person-card" style="width: 180px; padding: 15px;" onclick="showCV('L.A.E.Mayra Arlem Escudero Pérez', 'A C', 'Analista',  'analyst_portrait1',  'Licenciada en Administración de Empresas, Especialización en Administración del Comercio Exterior.', 'Administradora (Encargada del Inventario, Elaboración de Requisiciones, Trámites de viáticos, manejo del fondo rotatorio y chequera, coadyuvar en la elaboración de POA-PbR, apoyo en la integración del Pladea) Apoyo en la coordinación de Planes y Programas de Estudio, Asistente Analista de Datos Personales, Específicamente revisar que no se filtren datos personales en la publicación de obligaciones, Elaboración de Actas de Comité de Transparencia, Atención de solicitudes ARCOP.', 'esovando@uv.mx', '10504')">
+                            <div class="person-card" style="width: 180px; padding: 15px;" onclick="showCV('L.A.E.Mayra Arlem Escudero Pérez', 'A C', 'Analista',  'analyst_portrait1',  'Licenciada en Administración de Empresas, Especialización en Administración del Comercio Exterior.', 'Administradora (Encargada del Inventario, Elaboración de Requisiciones, Trámites de viáticos, manejo del fondo rotatorio y chequera, coadyuvar en la elaboración de POA-PbR, apoyo en la integración del Pladea) Apoyo en la coordinación de Planes y Programas de Estudio, Asistente Analista de Datos Personales, Específicamente revisar que no se filtren datos personales en la publicación de obligaciones, Elaboración de Actas de Comité de Transparencia, Atención de solicitudes ARCOP.', 'mescudero@uv.mx', '10504')">
                                 <div class="avatar-container" style="width: 50px; height: 50px;">
                                     <img src="img/myra.jpeg" alt="Analyst" class="avatar">
                                 </div>
@@ -378,6 +365,30 @@
                 </div>
             </div>
         </div>
+
+            <!-- STAFF DE SOPORTE (UBICADO DEBAJO DEL CUERPO PRINCIPAL) -->
+            <div class="staff-column-container" style="min-width: 240px; margin-top: 40px; width: 100%;">
+                <div class="staff-title">Staff de Soporte y Administración</div>
+                <div class="staff-section" style="margin: 0 auto; padding: 25px 15px; max-width: 900px;">
+                    <div class="person-card" onclick="showCV('Lic. Tania Hernández Vicente', 'Staff de Soporte', 'Administradora', 'staff_portrait', 'Licenciatura en Derecho, Universidad IVES, Generación: 2018-2022. Licenciatura en Administración de Empresas, Universidad Veracruzana, Generación: 1994-1999.', 'Cuenta con más de 25 años de experiencia en funciones administrativas; gestión y control de recursos, contratos, nóminas, inventarios, afectaciones presupuestales, requisiciones, elaboración y seguimiento de PBR, etc.', 'tahernandez@uv.mx', '10500')">
+                        <div class="avatar-container" style="background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);">
+                            <img src="img/tania.jpeg" alt="Staff" class="avatar">
+                        </div>
+                        <div class="name">Lic. Tania Hernández Vicente</div>
+                        <div class="role">Administradora</div>
+                        <span class="badge-tag" style="background: rgba(16, 185, 129, 0.1); color: #059669;">Staff</span>
+                    </div>
+                    
+                    <div class="person-card" onclick="showCV('T. I. Rafael Bravo Reséndiz', 'IT', 'Apoyo Informático', 'analyst_portrait', 'Técnico Profesional Programación.', 'Profesional con experiencia en administración de sistemas, redes LAN y desarrollo e implementación de sistemas de nómina, producción, compras, inventarios y comercio exterior en empresas del sector textil. Ha impartido clases de programación e informática en instituciones educativas de Aguascalientes y Jalisco.Cuenta con experiencia en instalación y administración de servidores, dominios y Exchange Server 2000, así como en proyectos de infraestructura tecnológica y conectividad educativa. Participó en el proyecto federal Enciclomedia en Veracruz, instalando aulas y antenas satelitales en diversos municipios.Ha realizado cursos de actualización en tecnologías Microsoft Windows NT y actualmente se desempeña como Encargado del Área de Informática en la Coordinación Universitaria de Transparencia y Acceso a la Información.', 'rabravo@uv.mx', '10503')">
+                        <div class="avatar-container" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);">
+                            <img src="img/rafael1.jpeg" alt="IT Support" class="avatar">
+                        </div>
+                        <div class="name">T. I. Rafael Bravo Reséndiz</div>
+                        <div class="role">Apoyo Informático</div>
+                        <span class="badge-tag" style="background: rgba(245, 158, 11, 0.1); color: #d97706;">IT Staff</span>
+                    </div>
+                </div>
+            </div>
 
 
     <!-- MODAL PARA CV -->
