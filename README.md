@@ -8,7 +8,7 @@ Actualizacion 21 de enero de 2026
 Calendario UV 2024
 
 https://rabravo-uv.github.io/CutAI/calendario.html
-
+.
 Ley Número 250 de Transparencia
 
 https://rabravo-uv.github.io/CutAI/tarjetas.html
