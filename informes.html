@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <title>Informes</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpQ0C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- font-awesome/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <style>
+        
+        .span2 {
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .span2:hover {
+            text-decoration: underline;
+        }
+
+        .spans {
+            color: #000;
+            text-decoration: none;
+        }
+
+        #info5v {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: none;
+        }
+
+        thead th {
+            color: #f8f9f9 !important;
+            background: #0288D1 !important;
+        }
+        
+        .table,
+        th {
+            background-color: #d3eafc !important;
+        }
+    </style>
+</head>
+<body class="container mt-4" style="max-width: 1599px; max-height: 1199.99px;">
+
+    <div class="section">
+    <div class="container mt-4 header">
+        <div class="row">
+            <div class="card text-white bg-success">
+                <div class="card-footer">
+                    <h4 class="card-title">Informes</h4>
+                </div>
+            </div>
+        </div><br>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card"><img class="card-img-top"
+                            src="https://www.uv.mx/transparencia/files/2022/09/BANNER_CUTAI_01.png"
+                            alt="Informes de labores ante el Consejo Universitario General">
+                        <div class="card-footer"><a id="bt01" class="btn btn-primary w-100" role="button">Ver
+                                más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card"><img class="card-img-top"
+                            src="https://www.uv.mx/transparencia/files/2022/09/BANNER_CUTAI_02.png"
+                            alt="Informes de Desempeño">
+                        <div class="card-footer"><a id="bt02" class="btn btn-primary w-100" role="button">Ver
+                                más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://www.uv.mx/transparencia/files/2024/07/BANNER_CUTAI_03.png"
+                            alt="Informes semestrales de acciones realizadas en materia de transparencia.">
+                        <div class="card-footer">
+                            <a id="bt03" class="btn btn-primary w-100" role="button">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card text-white bg-primary">
+                    <div class="card-footer">
+                        <h4 class="card-title">Informes presentados al IVAI</h4>
+                    </div>
+                </div>
+            </div><br>
+            <div class="row g-4">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card"><img class="card-img-top"
+                            src="https://www.uv.mx/transparencia/files/2022/09/BANNER_CUTAI_04.png"
+                            alt="Acceso a la Información Pública">
+                        <div class="card-footer"><a id="bt04" class="btn btn-primary w-100" role="button">Ver
+                                más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card"><img class="card-img-top"
+                            src="https://www.uv.mx/transparencia/files/2022/09/BANNER_CUTAI_05.png"
+                            alt="Protección de datos personales">
+                        <div class="card-footer"><a id="bt05" class="btn btn-primary w-100" role="button">Ver
+                                más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card"><img class="card-img-top"
+                            src="https://www.uv.mx/transparencia/files/2022/09/BANNER_CUTAI_06.png"
+                            alt="Clasificación de Información">
+                        <div class="card-footer"><a id="bt06" class="btn btn-primary w-100" role="button">Ver
+                                más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+    </div>
+    <div class="container opciones" style="display: none;">
+        <div class="container mt-4 opcion01" style="display: none ;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-primary" role="alert">
+                        <h4><strong>Informes de labores ante el Consejo Universitario General</strong><br></h4>
+                        <p>En este apartado podrás consultar el informe de labores que de manera anual presenta el
+                            Titular de la Coordinación Universitaria de Transparencia, Acceso a la Información y
+                            Protección de datos Personales ante el Consejo Universitario General </p>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/IQCRARqKWMzMQpbzCFHhOPgpAffDpxlSvSY8Moti3W3I2Hc?e=i7Mgtj"
+                                target="new" rel="noopener noreferrer"><strong>Decimoséptimo Informe de Labores al
+                                    H. Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">15 de Diciembre 2025</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/IQABFkcLUdaoSacRt6ZkfRpGAQt80qGwgQ421ApgOhwTQkk?e=ncho2s"
+                                target="new" rel="noopener noreferrer"><strong>Decimosexto Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">16 de Diciembre 2024</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EVuilcNo_HFCjsoyFP_rZMQBZcL6Ub13Os2NYRm5eC7zgQ?e=wPaP5U"
+                                target="new" rel="noopener noreferrer"><strong>Decimoquinto Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">11 de Diciembre 2023</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EUwNvAhJwbhEiphuOst-7_wBOO21zJX-UfW8xt4lBE3XZg?e=ozqxqE"
+                                target="new" rel="noopener noreferrer"><strong>Catorceavo Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">19 de Diciembre 2022</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EXpRhlvtcMZKoZLtPQDIjjYBHvJQuv0AtCtFeo9FAqVzWQ?e=dZEcRg"
+                                target="new" rel="noopener noreferrer"><strong>Treceavo Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">17 de Diciembre 2021</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EQkT97R97-xMppC3r-qJz4ABuAYUfhKP1xICVZmDem2h8A?e=1MFU4C"
+                                target="new" rel="noopener noreferrer"><strong>Doceavo Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">14 de Diciembre 2020</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EfFbFRPopQ9InIGE1uOtg9UBxFDD81HPsWCKkCu2Q1tJSQ?e=7m7lwT"
+                                target="new" rel="noopener noreferrer"><strong>Undécimo Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">9 de Diciembre 2019</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EVrS6GC5UeRAgSyVpZg5cAgBNeZV65tmkoD6CfnnAV1M2g?e=d5XSZp"
+                                target="new" rel="noopener noreferrer"><strong>Décimo Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">3 de Diciembre 2018</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EbrZbYRaIJpBooFvcBnbRD8BFhWbNfrMf-KThlbBzKmbQg?e=QwTtXt"
+                                target="new" rel="noopener noreferrer"><strong>Noveno Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">11 de Diciembre 2017</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/Edym133RYZpAtXEoW1ZEXi0B0pxQBiq-gNckfwEveFdAMQ?e=hKlCdH"
+                                target="new" rel="noopener noreferrer"><strong>Octavo Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">14 de Diciembre 2016</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EcemL7f29LRFv8ExJm3qmnEBSEZDMDWCigwjEmEbM2yx5w?e=K1zquX"
+                                target="new" rel="noopener noreferrer"><strong>Séptimo Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">30 de Noviembre 2015</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EZHupeOrg_xJopDGA74_erkBBZ_OpEhN2vVycxvfe77Ctg?e=VsURyE"
+                                target="new" rel="noopener noreferrer"><strong>Sexto Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">15 de Diciembre 2014</span></li>
+                        <li class="list-group-item"><span class="span2"
+                                style="cursor:pointer; font-weight:bold;">Quinto Informe de Labores al H. Consejo
+                                Universitario General&nbsp; <span class="badge bg-secondary">16 de Diciembre
+                                    2013</span></span>
+                            <ul id="info5v" class="list-group mt-2" style="display:none;">
+                                <li class="list-group-item"><a
+                                        href="https://uvmx.sharepoint.com/:b:/s/rept/EewETuU7wVtNrm_YqmmZPNoB8ufrPZ8ysT3V8YbRoHEr4w?e=iJ6SXU"
+                                        target="new" rel="noopener noreferrer">Síntesis del Quinto Informe de
+                                        labores</a></li>
+                                <li class="list-group-item"><a
+                                        href="https://uvmx.sharepoint.com/:b:/s/rept/EXkPBX2MaZdGv8-FzfudHtkBFvIz_NZPTvAQflIiF9gs-g?e=gmCJOa"
+                                        target="new" rel="noopener noreferrer">Quinto Informe de Labores al H.
+                                        Consejo Universitario General</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EQVQpZsNIC1NnQ72GMV1yHQBhjLnoFKY2jZSju-9w5x3SQ?e=ywET0M"
+                                target="_blank" rel="noopener noreferrer"><strong>Cuarto Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">27 de Febrero de 2012</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/EaAM7WnjfXxBvS0sb8m2wBgBTM6jB5zhchVyWHAJ8B9BLw?e=umqfWR"
+                                target="_blank" rel="noopener noreferrer"><strong>Tercer Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">16 de Diciembre de 2010</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/:b:/s/rept/Ef1QH52DBVxGpECjCulgiBcB-NwJC7Wletz9-cvwxaO1IQ?e=yrSpuh"
+                                target="_blank" rel="noopener noreferrer"><strong>Segundo Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">29 de Junio de 2009</span></li>
+                        <li class="list-group-item"><a
+                                href="https://uvmx.sharepoint.com/sites/rept/files/2022/Informes/Informe10marzo2008.pdf?ga=1"
+                                target="_blank" rel="noopener noreferrer"><strong>Primer Informe de Labores al H.
+                                    Consejo Universitario General</strong></a>&nbsp; <span
+                                class="badge bg-success">10 de Marzo de 2008</span></li>
+                    </ul>
+                </div>
+            </div><button type="button" class="btn btn-primary rg01">Regresar</button>
+        </div>
+        <div class="container mt-4 opcion02" style="display: none;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-primary" role="alert">
+                        <h4><strong>Informes de Desempeño</strong></h4>
+                        <p>Conoce los reportes trimestrales del Desempeño de las actividades realizadas en los
+                            Departamentos que conforman la CUTAI.</p>
+                    </div>
+                    <h3>Desempeño CUTAI 2023</h3>
+                    <ul>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EVCwJRtBAGlJpe2vl9IdxZcB6YNnlcAK7FPuDDZo8Q5h4A?e=Orve5A"
+                                target="_blank" rel="noopener noreferrer">Primer Trimestre</a></li>
+                    </ul>
+                    <h3>Desempeño CUTAI 2022</h3>
+                    <ul>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EWV5qmjEqu1LgvHvXrkE8UUBXty9ixXB7yh1xNn4lkizQg?e=dEaeaq"
+                                target="_blank" rel="noopener noreferrer">Primer Trimestre</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ER5g97yPe_BOvjXtvG90nAkByBtiFaleE95jXrf3QekWEQ?e=d9dgKM"
+                                target="_blank" rel="noopener noreferrer">Segundo Trimestre</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EdjS7Fabza1As3mmpmgaz7MBSyC8HpXH1UgZlE3kF2nlDw?e=KIKIHc"
+                                target="_blank" rel="noopener noreferrer">Tercer Trimestre</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/Efr6Zsbw6-tJraG19Q2FBjwBTLMY2XW0gqbpJ6iD4QM2_g?e=zZFqAi"
+                                target="_blank" rel="noopener noreferrer">Cuarto Trimestre</a></li>
+                    </ul>
+                    <h3>Desempeño CUTAI 2021</h3>
+                    <ul>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EUsXDCWum45EjPgQPuJc2LABcuw3Op3pvR9qn0K27Ayk7Q?e=JT7rDr"
+                                target="_blank" rel="noopener noreferrer">Primer Trimestre</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EYkrog1PoWNPjtvwBc_3m0EBLnI0J6ywDvrNn9Ey1YsL2w?e=OYOZ5Y"
+                                target="_blank" rel="noopener noreferrer">Segundo Trimestre</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ES1mZRf4tW9Omt5SCzMZFvMBFEDZK1boCgRMjIS0X88VJg?e=JDeoVk"
+                                target="_blank" rel="noopener noreferrer">Tercer Trimestre</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/Ea1vbvXxYzdGqbxnWrW8_KABvJSxsj7vcPQqb1KGpti0nQ?e=dJ80SQ"
+                                target="_blank" rel="noopener noreferrer">Cuarto Trimestre</a></li>
+                    </ul>
+                    <h3>Desempeño CUTAI 2020</h3>
+                    <ul>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EfBDhtzSyg9BghYFwkHiVnABj3PkWOCMH2uf4zkQG6oCoA?e=wzU75O"
+                                target="_blank" rel="noopener noreferrer">Primer Trimestre</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EdhXtTsGobhFhnw82F6Ra6sBc0Be6qpyeCbFZwpGGmJ_Zg?e=UMRdhn"
+                                target="_blank" rel="noopener noreferrer">Segundo Trimestre</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ER-LvIzcZUBEj0CNuJ04u8IBXZZUMOJUnfv6SXkITO_6ww?e=JfQOnh"
+                                target="_blank" rel="noopener noreferrer">Tercer Trimestre</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/Ef8NDxx9hGlMqGlV1Tjnw4YBFG_vd_ocir4zJI8B94pApw?e=0PAIdM"
+                                target="_blank" rel="noopener noreferrer">Cuarto Trimestre</a></li>
+                    </ul>
+                </div>
+            </div><button type="button" class="btn btn-primary rg01">Regresar</button>
+        </div>
+        <div class="container mt-4 opcion03" style="display: none;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-primary" role="alert">
+                        <h4><strong>Informes semestrales de acciones realizadas en materia de
+                                transparencia.</strong>
+                        </h4>
+                        <p>(Art. 11 fracción XV de la Ley 875 de Transparencia y Acceso a la Información Pública
+                            para el
+                            Estado de Veracruz)</p>
+                    </div>
+                    <ul>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/IQCOwcsXu8EYR6KiolWDecooAQW-vdQo8l4BDeW1eWCJXms?e=95XE09" target="_blank" rel="noopener noreferrer">Informe II semestre 2025</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EefHlDORNE5CjkKOwgXIFKIBoQTufQH7FRQOTdzNIzKq6Q?e=1HU49Q" target="_blank" rel="noopener noreferrer">Informe I semestre 2025</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ES1jUA8NUbtAldKD3L2FHWgBrVwEBOqraZ6rPQsrlYE2_A?e=7mkjq5" target="_blank" rel="noopener noreferrer">Informe II semestre 2024</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ESYz1D40ylFApdjxMJ2XTXIBgae2Jl8TWHPRVwafxf2Mug?e=IEjBXX" target="_blank" rel="noopener noreferrer">Informe I semestre 2024</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ERFJdZToZwBIvP32KFVHs3cBOAi9iaYwR16cjf5m2Y7qaA?e=jh5T0a" target="_blank" rel="noopener noreferrer">Informe II semestre 2023</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EUqbqIP0hSVGn3YwuCgIRtYBRePdtxVRRHvwYdn2J1NeSQ?e=fNTnnH" target="_blank" rel="noopener noreferrer">Informe I semestre 2023</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EYI9pMyDk_dDvxc3w7OQm7ABwsBFXIikYZRnNB2Fcl68oA?e=IcAX8m" target="_blank" rel="noopener noreferrer">Informe II semestre 2022</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ETcEzxWDIZZHmXrvIVQ7fhAB2pJPZhKXFPL7NxQ4uXH1RQ?e=ryix1i" target="_blank" rel="noopener noreferrer">Informe I semestre 2022</a></li>
+                    </ul>
+                </div>
+            </div><button type="button" class="btn btn-primary rg01">Regresar</button>
+        </div>
+        <div class="container mt-4 opcion04" style="display: none;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-success" role="alert">
+                        <h4><strong>Informes de solicitudes de acceso a la información pública</strong></h4>
+                        <p>Consulta los informes semestrales sobre las solicitudes de acceso a la información
+                            pública
+                            relativas por la UV así como las respuestas emitidas </p>
+                    </div>
+                    <ul>
+                         <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/IQBFf_1QtJmGRqsy3O8ryLBQAfJKxHOO3ZDc3KjoP7VnOvQ?e=V0fAeh"
+                                target="_blank" rel="noopener noreferrer">Informe Anual 2025</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/IQAoxo_w5FpwTqIz5lUnbKMxAQV9zGKCeB3SraUDRXfoevU?e=hSHb61"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2025</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EbHMSwY6D4ZJhnUn8Dl_JEkBkrLL3pIPrvYQXeLo06eoiA?e=sGwMXF"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2025</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EavMSyDhNj9LlFdUq3dQfeYB-V-_t3Pv5IF_pkym8eYpGg?e=fptZc8"
+                                target="_blank" rel="noopener noreferrer">Informe Anual 2024</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EUkAuB7CsnBHsT4d_RQ8wnEBQUFsPDpvIUR-pmD2IOMfww?e=PuJlzx"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2024</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/Ee6TFNZrOJJHnsb0zvMuz2AB-Uxu9DvxwYVjVXuhl5JwDA?e=HjYpws"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2024</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EcQTwyyYB4NEl9Ri1vfJI4UBjJ10d3SA_j8Qh1KjIXkW6g?e=tpRaIU"
+                                target="_blank" rel="noopener noreferrer">Informe Anual 2023</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EZyMZL0yKC1GvIJR7DwDB2ABYtKwXXZ_UtpKjURRs4nz6A?e=ggFtj2"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2023</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EVYTpI_h-c1MnFesLL2zSDYBsEnNBd3RmJxSQdszQcVXvQ?e=rAjg3K"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2023</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ETFyHqlYDApMgafO7kh8TnoBFhQkdUaa7qowv-ZqMHZi5A?e=x8EFvA"
+                                target="_blank" rel="noopener noreferrer">Informe Anual 2022</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EUOH5ceiQrROjF9pPUsr814BlcByXbBacU6PxG3jh0yUuw?e=HKAhGV"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2022</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EQ6y2JDK0uNOrFNwPdRilTABqgpDBb-TVktCpV7VZkFstw?e=Kzo7cz"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2022</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EdQI-GwE48lNiY2dV9RSnoABCuU4clKJljTWMxPVvhAwuQ?e=Uyqi6W"
+                                target="_blank" rel="noopener noreferrer">Informe Anual 2021</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ESUn1aQ0seFLp1Vyg6pzU7cB5klIhSBn-f15qzaXo9Hy1w?e=Pq4uhy"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2021</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EeYEMWXx95FBvObnDCbRFRcBSIkUFWc1WleQonzsOVzNdA?e=eAIuba"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2021</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EV7AYStNIrFCh6LveIA8bKgBdq_YwJGaDxaIv0qlxPotRg?e=YDTzd9"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre y anual 2020</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EfSDwpvrnvhNjzu-Xuukg2oB31dl_AIZLORp5ona2V0uaA?e=5Q3MiP"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2020</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EQEgqc5HMB9EoAuHv1bV55YBn4gwrDlqdzLLXuu0n4QXlQ?e=T36Y4h"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre y anual 2019</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EXCLqZZMDAhKlWspm_oE12oBIBclQSsYQiQSRFK9dEZLyQ?e=rLcckl"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2019</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EcegpiJdgmtLhSDz46_Pg0MBgo-_1lROIj-XCzW_4U1VuA?e=qdac8b"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2018</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EeAiFOmEsdNOh_id8jLzLioBy4-uy6QxK1kzOpMTraB-0A?e=P3dFf0"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2018</a></li>
+                    </ul>
+                </div>
+            </div><button type="button" class="btn btn-primary rg01">Regresar</button>
+        </div>
+        <div class="container mt-4 opcion05" style="display: none;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-success" role="alert">
+                        <h4><strong>Datos Personales</strong></h4>
+                        <p>Consulta los informes anuales sobre cumplimiento de la UV en materia de protección de datos personales</p>
+                    </div>
+                    <p>Informes Datos Personales</p>
+                    <ul>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/IQAxe6Ah0V7NQIUXWQvD1iR8AUkQ1u9zULmlClxCL7R24A8?e=mDsIDM"
+                                target="_blank" rel="noopener noreferrer">Informe 2025</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EYD_pOoSG-hNmAIehaOYpiMBxBoPBYhhW00z7RjYcxAQXw?e=tX6NOi"
+                                target="_blank" rel="noopener noreferrer">Informe 2024</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EebZT9ikBh1Dj4_Av0LhZDEBJGDd3sHnmL5oEmgiC4RMxA?e=YNNlnh"
+                                target="_blank" rel="noopener noreferrer">Informe 2023</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EZa_f7acZv5CuGDB2aNNNN8BdiE6LwSlbGWvfp1snWmPgA?e=1PCUEB"
+                                target="_blank" rel="noopener noreferrer">Informe 2022</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EWZsKbeykTROvD7WUwrHKPQB407X0I0rFMSumT0_lQCgmw?e=EEaIme"
+                                target="_blank" rel="noopener noreferrer">Informe 2021</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EfD7mvI1SNdElnedsvrx_RQBIFDaDdRWYDYCAm7taPneAQ?e=DvXNuR"
+                                target="_blank" rel="noopener noreferrer">Informe 2020</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/Ea3h9Xs-vfxDuAbsCRsLbpcBx8AdIR4aLia8kpubKEro7Q?e=XML9My"
+                                target="_blank" rel="noopener noreferrer">Informe 2019</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EdZDkkeE0ARCkiyXDv5ZfaABM0347s5_GUIR06RoHViB0Q?e=yPktPl"
+                                target="_blank" rel="noopener noreferrer">Informe 2018</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EbsUrbPs8c1DiK37w62FEvMBTL9uLKFvoJT62tJ9IoDJ1g?e=9fMagE"
+                                target="_blank" rel="noopener noreferrer">Informe 2017</a></li>
+                    </ul>
+                </div>
+            </div><button type="button" class="btn btn-primary rg01">Regresar</button>
+        </div>
+        <div class="container mt-4 opcion06" style="display: none;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-success" role="alert">
+                        <h4><strong>Clasificación de Información</strong></h4>
+                        <p>-.-</p>
+                    </div>
+                    <ul>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/IQBFuCoue6cJRYRHIztN3yMqAaSpfzq3VPXZ9bAOxB8x0-c?e=eExd2Q"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2025</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EcpRE5ijwlxBi58wsx0KKAsBJN16t-9_o6G_8H-ZEUjM0w?e=j2iY9K"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2025</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/Eel5IizTV2NAm7IDkoaYLBYBhz9xjYfyYCBzK10jaopZPA?e=fyWQ4k"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2024</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EVliQalL1CVAmxCaqZW11u0BlQvK23j48UGNyDbnyI4xqg?e=dPDbZt"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2024</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EYAFD845l_FFsxoqUsWv9rYBLjUNFb9TDo6yu4mNVkcysw?e=Se1Gsc"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2023</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EebEwuHt4x9GhC9jvxYCC80BjJV_n7ozuc9QaAvAHeX3ng?e=SZWFjh"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2023</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EeSv3m1wovJJh-Af08EgEn0B6keMSgstW4H_tfEkgx_5hw?e=IccU4g"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2022</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EbaXi1hZS-BAnVKgdqtK2EwBRsjVeQMqviVpLGs8_sHBqw?e=c15pIq"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2022</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ERqtODW28mxBsPxl4xg5A_sB9qd_v8NOj9Xah_TXPxHJ9g?e=x6Bcgv"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2021</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EV4C7C0GPPBNpoI1odocrhQBZ9AtKo4CVsDGg3jkXYwLsw?e=4ZJN0x"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2021</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/Ecz3JrIk9JRJiD8J-vNOtWcBJLyWBen9XSBSERgoEqlXHw?e=YlpMqe"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2020</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/ETFtaHddtxFPsysbRLQn7DcBCn88pxmmpqdyGUIe6BtLkQ?e=nmxafl"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2020</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EfSypFR-atBEtCDItn3r1g4BQgFXzrlu-K7t_I7dYTpuzw?e=unub4w"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2019</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/Ea_Mvzj0PjNBq8tL-zsA75gBsPdqkqF3fX9yqNQzJ5wYyw?e=02P0u0"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2019</a></li><br>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/EcIMgkt5Z9VLoFX6HGWpw-0Bspbl62EK7mx2GF2ttHln_g?e=BuA3Bp"
+                                target="_blank" rel="noopener noreferrer">Informe II semestre 2018</a></li>
+                        <li><a href="https://uvmx.sharepoint.com/:b:/s/rept/Ee6Gt-4I2R5Ct-NqFdWaDVYB3dCNRnagTVlJaS8L0hhMDQ?e=gZ1WNe"
+                                target="_blank" rel="noopener noreferrer">Informe I semestre 2018</a></li>
+                    </ul>
+                </div>
+            </div><button type="button" class="btn btn-primary rg01">Regresar</button>
+        </div>
+    </div>
+</div>
+
+ <script>
+        $(document).ready(function () {
+            $(".opciones, .opcion01, .opcion02, .opcion03, .opcion04, .opcion05, .opcion06").hide();
+            $(".span2").click(function () {
+                $("#info5v").slideToggle("slow");
+            });
+            $(".rg01").click(function () {
+                $(".opciones, .opcion01, .opcion02, .opcion03, .opcion04, .opcion05, .opcion06").hide()
+                $(".header").show();
+                $(html).scrollTop(0);
+            });
+            $("#bt01").click(function () {
+                $(".header").hide();
+                $(".opciones, .opcion01").show();
+                $(html).scrollTop(0);
+            });
+            $("#bt02").click(function () {
+                $(".header").hide()
+                $(".opciones, .opcion02").show();
+                $(html).scrollTop(0);
+            });
+            $("#bt03").click(function () {
+                $(".header").hide()
+                $(".opciones, .opcion03").show();
+                $(html).scrollTop(0);
+            });
+            $("#bt04").click(function () {
+                $(".header").hide();
+                $(".opciones, .opcion04").show();
+                $(html).scrollTop(0);
+            });
+            $("#bt05").click(function () {
+                $(".header").hide();
+                $(".opciones, .opcion05").show();
+                $(html).scrollTop(0);
+            });
+            $("#bt06").click(function () {
+                $(".header").hide();
+                $(".opciones, .opcion06").show();
+                $(html).scrollTop(0);
+            });
+        });
+    </script>
+
+    
+</body>
+</html>
