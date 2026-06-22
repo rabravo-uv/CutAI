@@ -40,3 +40,16 @@ https://rabravo-uv.github.io/CutAIjs/numeralia.js
 img Carpeta de imágenes
 
 https://rabravo-uv.github.io/CutAI/img/
+
+## WEB uv.mx/transparencia
+
+Nosotros
+    Bienvenida
+    Directorio
+    Organigrama
+    Normatividad
+    PLADE Cutai 2021 - 2025
+    PLADE Cutai 2017 - 2021
+    Informes
+    Comunicados - Circulares
+    
