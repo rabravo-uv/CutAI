@@ -59,7 +59,7 @@
       const updateUvStatus = connected => {
         if (connected) {
           uvStatus.textContent = 'Conexión disponible. Solo abrir en la red UV.';
-          uvLink.classList.remove('disabled');
+          uvLink.classList.add('enable');
           uvLink.removeAttribute('aria-disabled');
           uvLink.href = uvUrl;
         } else {
