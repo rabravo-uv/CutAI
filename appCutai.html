@@ -56,14 +56,22 @@
       const uvStatus = document.getElementById('uv-status');
       const uvLink = document.getElementById('uv-link');
       const uvUrl = 'http://148.226.193.87:8080/';
-      const updateUvStatus = connected => {
+      const publicIpService = 'https://api.ipify.org?format=json';
+
+      const updateUvStatus = (connected, publicIp = null) => {
         if (connected) {
-          uvStatus.textContent = 'Conexión disponible. Solo abrir en la red UV.';
-          uvLink.classList.add('enable');
+          uvStatus.textContent = 'Intranet UV detectada. La aplicación está accesible desde la red interna.';
+          uvLink.clas|sList.remove('disabled');
           uvLink.removeAttribute('aria-disabled');
           uvLink.href = uvUrl;
+          if (publicIp) {
+            uvStatus.textContent += ` IP pública: ${publicIp}`;
+          }
         } else {
-          uvStatus.textContent = 'No se detecta conexión con la red UV. Abra este enlace solo desde la red UV.';
+          uvStatus.textContent = 'No se detecta conexión con la intranet UV. Estás en internet público.';
+          if (publicIp) {
+            uvStatus.textContent += ` IP pública: ${publicIp}`;
+          }
           uvLink.classList.add('disabled');
           uvLink.setAttribute('aria-disabled', 'true');
           uvLink.href = '#';
@@ -76,9 +84,21 @@
         }
       });
 
-      fetch(uvUrl, { mode: 'no-cors', cache: 'no-store' })
-        .then(() => updateUvStatus(true))
-        .catch(() => updateUvStatus(false));
+      const checkPublicIp = () => {
+        return fetch(publicIpService, { cache: 'no-store' })
+          .then(response => response.json())
+          .then(data => data.ip)
+          .catch(() => null);
+      };
+
+      Promise.all([
+        fetch(uvUrl, { mode: 'no-cors', cache: 'no-store' })
+          .then(() => true)
+          .catch(() => false),
+        checkPublicIp()
+      ]).then(([uvConnected, publicIp]) => {
+        updateUvStatus(uvConnected, publicIp);
+      });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
