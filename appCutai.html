@@ -53,7 +53,7 @@
               id="ip-input"
               class="form-control"
               rows="4"
-              placeholder="148.226.193.31, 148.226.1.10"
+              placeholder="148.226.193.87, 148.226.1.10"
             ></textarea>
             <div class="mt-3">
               <button id="validate-ip-btn" class="btn btn-outline-primary">
@@ -89,7 +89,7 @@
           return false;
         }
 
-        const [first, second, ,] = parts.map(part => Number(part));
+        const [first, second] = parts.map(part => Number(part));
 
         if ([first, second].some(value => Number.isNaN(value) || value < 0 || value > 255)) {
           return false;
@@ -98,8 +98,47 @@
         return first === 148 && second === 226;
       };
 
+      const detectClientIps = async () => {
+        const ips = new Set();
+
+        try {
+          const pc = new RTCPeerConnection({
+            iceServers: [{ urls: ['stun:stun.l.google.com:19302'] }]
+          });
+
+          pc.createDataChannel('');
+          const offer = await pc.createOffer();
+          await pc.setLocalDescription(offer);
+
+          await new Promise(resolve => setTimeout(resolve, 1000));
+
+          pc.onicecandidate = event => {
+            if (!event.candidate) {
+              return;
+            }
+
+            const match = event.candidate.candidate.match(/(\d{1,3}(?:\.\d{1,3}){3})/);
+            if (match) {
+              ips.add(match[1]);
+            }
+          };
+
+          pc.close();
+        } catch (error) {
+          console.warn('No se pudieron detectar IPs locales:', error);
+        }
+
+        return Array.from(ips);
+      };
+
+      const shouldEnableUvLink = (connected, publicIp = null) => {
+        return connected || isUvIntranetIp(publicIp);
+      };
+
       const updateUvStatus = (connected, publicIp = null) => {
-        if (connected) {
+        const enableLink = shouldEnableUvLink(connected, publicIp);
+
+        if (enableLink) {
           uvStatus.textContent = 'Intranet UV detectada. La aplicación está accesible desde la red interna.';
           uvLink.classList.remove('disabled');
           uvLink.removeAttribute('aria-disabled');
@@ -159,6 +198,19 @@
           .catch(() => null);
       };
 
+      const autoValidateDetectedIps = async () => {
+        const detectedIps = await detectClientIps();
+        const publicIp = await checkPublicIp();
+        const values = [...detectedIps, publicIp].filter(Boolean);
+
+        if (values.length) {
+          ipInput.value = values.join(',\n');
+          renderIpValidation();
+        }
+
+        updateUvStatus(false, publicIp);
+      };
+
       Promise.all([
         fetch(uvUrl, { mode: 'no-cors', cache: 'no-store' })
           .then(() => true)
@@ -167,6 +219,8 @@
       ]).then(([uvConnected, publicIp]) => {
         updateUvStatus(uvConnected, publicIp);
       });
+
+      autoValidateDetectedIps();
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
