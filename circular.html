@@ -37,7 +37,7 @@
   </div>
 </div>
   <div id="collapseCircular" class="collapse"> <!-- Circulares -->
-      <div id="m100" style="display: none;" class="row row-cols-3 row-cols-md-3">
+      <div id="m100"  class="row row-cols-3 row-cols-md-3">
           <div class="col"></div>
           <button type="button" class="btn btn-primary btn-sm btn-block">Regresar</button>
           <div class="col"></div>
@@ -65,8 +65,11 @@
                               <a href="https://uvmx.sharepoint.com/:b:/s/rept/IQAdYhrw-_KyR7Gr-ymyfCayAb1shX8Mj5WWpies8rkkRMA?e=1zx8oS" target="_blank" class="list-group-item list-group-item-success">Circular 001: Actualización de Políticas para una mejor gestión en las solicitudes de acceso a la información, protección de datos personales y ublicación de información en materia de transparencia.</a>
                               <a href="https://uvmx.sharepoint.com/:b:/s/rept/IQCd1wbKBCNnSoPMXDeZndMHARZp7JbeQ-cf9DCbFICuZqs?e=2FhEpf" target="_blank" class="list-group-item list-group-item-success">Circular 002: Guía para testar datos personales y VP UV Generador de versiones públicas de la Universidad Veracruzana</a>
                               <a href="https://uvmx.sharepoint.com/:b:/s/rept/IQD2u60m-SQfSKAZqKNPqQJgAdSum5PFUSmKfSVWjSoooSA?e=ovOfsV" target="_blank" class="list-group-item list-group-item-success  list-group-item-action active">Circular 003: Carga de obligaciones de transparencia, primer trimestre 2026</a>
+                              <a href="https://uvmx.sharepoint.com/:b:/s/rept/IQDeqKBbhZggQ4wqqZGnX3ktAYLxV9ia9cond57U6cH77xc?e=gZHYuK" target="_blank" class="list-group-item list-group-item-success  list-group-item-action active">Circular 004: Versiones públicas para el cumplimiento de obligaciones de transparencia.</a>
+                              <a href="https://uvmx.sharepoint.com/:b:/s/rept/IQCuX6AkA7BHS4bIPGGC-NjXAZIPbblIE7hb4G8wTQAG4_k?e=kz43WM" target="_blank" class="list-group-item list-group-item-success  list-group-item-action active">Circular 005: Carga de obligaciones de transparencia, segundo trimestre 2026</a>
+                              <a href="https://uvmx.sharepoint.com/:b:/s/rept/IQC4RM8FelzPSLXIgHUYgEtKASmyq6KDgjCI-7Zfo47PAX0?e=5mRBvm" target="_blank" class="list-group-item list-group-item-success  list-group-item-action active">Circular 006: Envío anticipado de versiones públicas al Comité de Transparencia.</a>
                             </div>
-                          </div>
+                          </div>|
                         </div>
                       </div>
                       <div class="accordion-item">
@@ -357,6 +360,64 @@
     <!-- place footer here -->
   </footer>
 
+  <script>
+  $("#m100, #m101, #m102, #m103, #m104, #m105").click(function(){
+    $("#collapseComunicado, #collapseCircular, #collapseDestruccion").collapse('hide');
+    $("#m100, #m101, #m102, #m103, #m104, #m105").hide();
+    $("#m0").show();
+  });
+
+  $("#m1").click(function(){
+        $("#m0").hide(); 
+        $("#collapseComunicado").collapse('hide');
+        $("#collapseDestruccion").collapse('hide');
+        $("#m100, #m101").show();
+  });
+  
+  $("#m2").click(function(){
+        $("#m0").hide(); 
+        $("#collapseCircular").collapse('hide');
+        $("#collapseDestruccion").collapse('hide');
+        $("#m102, #m103").show();
+  });
+
+  $("#m3").click(function(){
+        $("#m0").hide(); 
+        $("#collapseCircular").collapse('hide');   
+        $("#collapseComunicado").collapse('hide');   
+        $("#m104, #m105").show();
+  });
+</script>
+
+<style>
+    .grid-container {
+      display: grid;
+      grid-gap: 10px;
+      background-color: rgb(9, 104, 96);
+      padding: 10px;
+    }
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      padding: 20px;
+      font-size: 1.05em;
+    }
+    .item1 {
+      grid-column: 2 / span 3;
+      grid-row: 3;
+    }
+    .item2 {
+      grid-column: 3;
+      grid-row: 1 / span 2;
+    }
+    .item5 {
+      grid-column: 1;
+      grid-row: 3;
+    }
+    ol {
+      text-align: justify;
+    }
+</style>
 
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxSZ9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
