@@ -5,6 +5,18 @@ Actualizacion 21 de enero de 2026
 
 ## Enlaces de las publicaciones
 
+
+https://rabravo-uv.github.io/CutAI/directorio.html
+https://rabravo-uv.github.io/CutAI/appCutai.html
+https://rabravo-uv.github.io/CutAI/Avisos-2025.html
+https://rabravo-uv.github.io/CutAI/ct/menuCT.html
+
+https://rabravo-uv.github.io/CutAI/Ley205.html
+https://rabravo-uv.github.io/CutAI/Ley251.html
+https://rabravo-uv.github.io/CutAI/tarjetas.html
+https://rabravo-uv.github.io/CutAI/UVtarjetas.html
+
+
 Calendario UV 2024
 
 https://rabravo-uv.github.io/CutAI/calendario.html
@@ -24,6 +36,7 @@ https://rabravo-uv.github.io/CutAI/Ley205.html
 Ley datos personalos ARCOPP 251
 
 https://rabravo-uv.github.io/CutAI/Ley251.html
+
 
 CSS carpeta de estilo
 
